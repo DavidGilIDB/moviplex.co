@@ -13,6 +13,10 @@ include ("Global.php");
 
 $page = isset($_GET['page']) ? $_GET['page'] : "";
 
+if(isset($_GET['page']) && !isset($_GET['section'])){
+  $page = "main";
+}
+
 include ("session.php");
 
 if ($page == '' || $page == ' ' || $page == null) {
