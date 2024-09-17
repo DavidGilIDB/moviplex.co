@@ -1,18 +1,17 @@
 <?php
 
-$sections = ["moira-recently-added"=>[ 'type' => 'games'], "moira-top-games"=>[ 'type' => 'games']];
+$sections = ["moira-recently-added" => ['type' => 'games'], "moira-top-games" => ['type' => 'games']];
 
-$result = getMultySection($sections,'en');
-
-
-
+$result = getMultySection($sections, 'en');
 
 ?>
 
 <main class="product">
   <div class="movie_card">
     <div class="movie-view">
-      <button type="button" class="video-player" data-bs-toggle="modal" data-bs-target="#subscriptionModal" onclick="playVideo('<?php if(isset($_SESSION['login'])==true){ echo $result[0]->urlVideo;} ?>');">
+      <button type="button" class="video-player" data-bs-toggle="modal" data-bs-target="#subscriptionModal" onclick="playVideo('<?php if (isset($_SESSION['login']) == true) {
+                                                                                                                                  echo $result[0]->urlVideo;
+                                                                                                                                } ?>');">
         <!--<img class="play-icon" src="assets/images/play-icon.png" />
         <img class="trailer-image" src="assets/images/trailer.png" /> -->
         <?php if (isset($result[0]->urlTrailer) == null) { ?>
@@ -55,14 +54,18 @@ $result = getMultySection($sections,'en');
           <?php
           } ?>
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-watch" data-bs-toggle="modal" data-bs-target="#subscriptionModal" onclick="playVideo('<?php if(isset($_SESSION['login'])==true){ echo $result[0]->urlVideo;} ?>');">
+          <button type="button" class="btn btn-watch" data-bs-toggle="modal" data-bs-target="#subscriptionModal" onclick="playVideo('<?php if (isset($_SESSION['login']) == true) {
+                                                                                                                                        echo $result[0]->urlVideo;
+                                                                                                                                      } ?>');">
             WATCH
           </button>
 
           <!-- <div class="modal fade modal-xl" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
-                <button type="button" class="close-modal" data-bs-dismiss="modal" aria-label="Close" onclick="stopVideo('<?php if(isset($_SESSION['login'])==true){ echo $result[0]->urlVideo;} ?>');"><img src="assets/images/close-mark.svg" alt="Close"></button>
+                <button type="button" class="close-modal" data-bs-dismiss="modal" aria-label="Close" onclick="stopVideo('<?php if (isset($_SESSION['login']) == true) {
+                                                                                                                            echo $result[0]->urlVideo;
+                                                                                                                          } ?>');"><img src="assets/images/close-mark.svg" alt="Close"></button>
                 <div class="modal-body">
                   <?php if (isset($_SESSION['pay_status']) === true) { ?>
                     <div id="player"></div>
@@ -79,7 +82,7 @@ $result = getMultySection($sections,'en');
             <a href="index.php?page=page&slug=<?php echo $result[1]->slug; ?>" class="btn-secondary btn-icon"><img src="assets/images/arrow-primary.png" alt="Arrow Right"></a>
           <?php } else {
           ?>
-          <a href="#" class="btn-secondary btn-icon disabled"><img src="assets/images/arrow-primary.png" alt="Arrow Right"></a>
+            <a href="#" class="btn-secondary btn-icon disabled"><img src="assets/images/arrow-primary.png" alt="Arrow Right"></a>
           <?php
           } ?>
         </div>

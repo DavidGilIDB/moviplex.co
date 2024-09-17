@@ -20,6 +20,9 @@ define("STORAGE_URL", "https://cms.d1b.pw/storage/");
 define("CMSURL", "https://cms-nocache-api.d1b.pw/");
 define("STORAGEURL", "https://cms.d1b.pw/storage/");
 
+define('MOIRA', 'moira-');
+
+
 setSession();
 function setSession()
 {
@@ -28,11 +31,11 @@ function setSession()
     // CHECK CURRENT LANGUAGE 
     if (isset($_SESSION['lang'])) {
         $lang = $_SESSION['lang'];
-        $url = CMSURL . "domain/".DOMAIN."/$lang";
+        $url = CMSURL . "domain/" . DOMAIN . "/$lang";
         //echo "Llamada hecha al idioma: $lang";
         //echo $url;
     } else {
-        $url = CMSURL . "domain/".DOMAIN;
+        $url = CMSURL . "domain/" . DOMAIN;
         //echo "Llamada hecha a default";
     }
 
@@ -171,48 +174,48 @@ function fetch_domain_metadata($url): array
 }
 
 
-function getSection($section, $lang, $type){
-    $url = CMSURL."content/section/".$section."/$lang";
+function getSection($section, $lang, $type)
+{
+    $url = CMSURL . "content/section/" . $section . "/$lang";
     // echo $url;
     $ch = curl_init();
-    curl_setopt($ch,CURLOPT_URL, $url);
-    curl_setopt($ch,CURLOPT_CONNECTTIMEOUT, 60);
-    curl_setopt($ch,CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
-        'Authorization: Bearer '. $_SESSION['access_token'],
+        'Authorization: Bearer ' . $_SESSION['access_token'],
     ]);
     // $datetime1 = dateTimeToMilliseconds(new DateTime());
     $response = json_decode(curl_exec($ch));
-    $statusRequest = curl_getinfo($ch, CURLINFO_HTTP_CODE); 
+    $statusRequest = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
     // $datetime2 = dateTimeToMilliseconds(new DateTime());
     // $interval = $datetime2 - $datetime1;
     // echo 'MILLIS: ' . $interval;
-    
+
     // echo json_encode($response);
     // echo $statusRequest;
 
-    if($statusRequest == 200 && $response->status == 200){
+    if ($statusRequest == 200 && $response->status == 200) {
         return $response->content->$type;
-    } else if($statusRequest == 401){
+    } else if ($statusRequest == 401) {
         // echo $_SESSION['access_token'];
         unset($_SESSION['site_domain']);
 
-        if(isset($_SESSION['retries'])){
+        if (isset($_SESSION['retries'])) {
             $_SESSION['retries'] = $_SESSION['retries'] + 1;
         } else {
             $_SESSION['retries'] = 1;
         }
 
-        if($_SESSION['retries'] > 2){
+        if ($_SESSION['retries'] > 2) {
             die("Error getting content!!");
         } else {
             setSession();
             return getSection($section, $lang, $type);
         }
-        
     } else {
         die("Error getting content!");
     }
@@ -220,11 +223,12 @@ function getSection($section, $lang, $type){
 
 
 
-function getMultySection($request, $lang){
+function getMultySection($request, $lang)
+{
     // $_SESSION['access_token'] = 11111;
     $mh = curl_multi_init();
-    foreach($request as $slug => $config){
-        $url = CMSURL."content/section/".$slug."/$lang";
+    foreach ($request as $slug => $config) {
+        $url = CMSURL . "content/section/" . $slug . "/$lang";
 
         $ch[$slug] = curl_init($url);
         curl_setopt($ch[$slug], CURLOPT_RETURNTRANSFER, 1);
@@ -233,7 +237,7 @@ function getMultySection($request, $lang){
         curl_setopt($ch[$slug], CURLOPT_SSL_VERIFYHOST, 0);
         curl_setopt($ch[$slug], CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($ch[$slug], CURLOPT_HTTPHEADER, [
-            'Authorization: Bearer '. $_SESSION['access_token'],
+            'Authorization: Bearer ' . $_SESSION['access_token'],
         ]);
         // curl_setopt($ch[$slug], CURLOPT_SSL_VERIFYHOST, 0);
         // curl_setopt($ch[$slug], CURLOPT_SSL_VERIFYPEER, 0);
@@ -241,22 +245,22 @@ function getMultySection($request, $lang){
     }
 
     // Start performing the request
-    $index=null;
+    $index = null;
     do {
         curl_multi_exec($mh, $index);
-    } while($index > 0);
+    } while ($index > 0);
 
     $unauthorized = false;
     // Extract the content
-    foreach($request as $slug => $config){
-        $type= $config['type'];
+    foreach ($request as $slug => $config) {
+        $type = $config['type'];
         $statusRequest = curl_getinfo($ch[$slug], CURLINFO_HTTP_CODE);
         $request[$slug]['status'] = $statusRequest;
         $response = json_decode(curl_multi_getcontent($ch[$slug]));
 
-        if($statusRequest == 200 && $response->status == 200){
+        if ($statusRequest == 200 && $response->status == 200) {
             $request[$slug]['response'] = $response->content->$type;
-        } else if($statusRequest == 401){
+        } else if ($statusRequest == 401) {
             $unauthorized = true;
         } else {
             die("Error getting content!");
@@ -269,17 +273,17 @@ function getMultySection($request, $lang){
     // Clean up the curl_multi handle
     curl_multi_close($mh);
 
-    if($unauthorized){
+    if ($unauthorized) {
         // echo $_SESSION['access_token'];
         unset($_SESSION['site_domain']);
 
-        if(isset($_SESSION['retries'])){
+        if (isset($_SESSION['retries'])) {
             $_SESSION['retries'] = $_SESSION['retries'] + 1;
         } else {
             $_SESSION['retries'] = 1;
         }
 
-        if($_SESSION['retries'] > 2){
+        if ($_SESSION['retries'] > 2) {
             die("Unauthorized!!");
         } else {
             setSession();
@@ -291,29 +295,178 @@ function getMultySection($request, $lang){
 }
 
 
-function getSectionMovies($section){
-    $url = "https://stream-api.d1b.pw/videoGenre?genre=".$section;
+function getSectionMovies($section)
+{
+    $url = "https://stream-api.d1b.pw/videoGenre?genre=" . $section;
     // echo $url;
     $ch = curl_init();
-    curl_setopt($ch,CURLOPT_URL, $url);
-    curl_setopt($ch,CURLOPT_CONNECTTIMEOUT, 60);
-    curl_setopt($ch,CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
     // $datetime1 = dateTimeToMilliseconds(new DateTime());
     $response = json_decode(curl_exec($ch));
-    $statusRequest = curl_getinfo($ch, CURLINFO_HTTP_CODE); 
+    $statusRequest = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
     // $datetime2 = dateTimeToMilliseconds(new DateTime());
     // $interval = $datetime2 - $datetime1;
     // echo 'MILLIS: ' . $interval;
-    
+
     // echo json_encode($response);
     // echo $statusRequest;
 
-    if($statusRequest == 200){
+    if ($statusRequest == 200) {
         return $response;
-    }else{
+    } else {
         return '';
+    }
+}
+
+function getItem($section, $id, $lang = 'en')
+{
+    $url = CMSURL . "content/single-item/" . $section . "/" . $id . "/" . $lang;
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Authorization: Bearer ' . $_SESSION['access_token'],
+    ]);
+
+    $response = json_decode(curl_exec($ch));
+    $statusRequest = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($statusRequest == 200 && $response->status == 200) {
+
+        return [$response->content];
+    } elseif ($statusRequest == 401) {
+
+        unset($_SESSION['site_domain']);
+
+        if (isset($_SESSION['retries'])) {
+
+            $_SESSION['retries'] = $_SESSION['retries'] + 1;
+        } else {
+
+            $_SESSION['retries'] = 1;
+        }
+
+        if ($_SESSION['retries'] > 2) {
+
+            die("Error getting content!!");
+        } else {
+
+            setSession();
+            return getItem($section, $id, $lang);
+        }
+    } else {
+
+        die("Error getting content!");
+    }
+}
+
+function getMixSection($section, $lang)
+{
+
+    $url = CMSURL . "content/section/" . $section;
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Authorization: Bearer ' . $_SESSION['access_token'],
+    ]);
+
+    $response = json_decode(curl_exec($ch));
+    $statusRequest = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+
+    if ($statusRequest == 200 && $response->status == 200) {
+
+        $types = ["apps", "articles", "games", "images", "sounds", "videos"];
+
+        foreach ($types as $type) {
+
+            if (isset($response->content->$type)) {
+                $items[$type] = $response->content->$type;
+            }
+        }
+        return $items;
+    } else if ($statusRequest == 401) {
+        // echo $_SESSION['access_token'];
+        unset($_SESSION['site_domain']);
+
+        if (isset($_SESSION['retries'])) {
+            $_SESSION['retries'] = $_SESSION['retries'] + 1;
+        } else {
+            $_SESSION['retries'] = 1;
+        }
+
+        if ($_SESSION['retries'] > 2) {
+            die("Error getting content!!");
+        } else {
+            setSession();
+            return getMixSection($section, $lang);
+        }
+    } else {
+        die("Error getting content!");
+    }
+}
+
+function getSectionType($section, $lang)
+{
+
+    $url = CMSURL . "content/section/" . $section . "/$lang";
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Authorization: Bearer ' . $_SESSION['access_token'],
+    ]);
+
+    $response = json_decode(curl_exec($ch));
+    $statusRequest = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($statusRequest == 200 && $response->status == 200) {
+
+        $types = ["apps", "articles", "games", "images", "sounds", "videos"];
+
+        foreach ($types as $type) {
+
+            if (isset($response->content->$type)) {
+                return $type;
+            }
+        }
+    } elseif ($statusRequest == 401) {
+
+        unset($_SESSION['site_domain']);
+
+        if (isset($_SESSION['retries'])) {
+            $_SESSION['retries'] = $_SESSION['retries'] + 1;
+        } else {
+            $_SESSION['retries'] = 1;
+        }
+
+        if ($_SESSION['retries'] > 2) {
+            die("Error getting content!!");
+        } else {
+            setSession();
+            return getSectionType($section, $lang);
+        }
+    } else {
+        die("Error getting content!");
     }
 }

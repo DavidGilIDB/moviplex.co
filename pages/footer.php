@@ -74,7 +74,7 @@ footer ul.social li {
 <footer class="py-5 px-2">
       <div class="container">
         <div class="row">
-          <div class="footer-logo"><img src="../assets/moviplex-logo.svg" alt="Moviplex logo" /></div>
+          <div class="footer-logo"><img src="./assets/moviplex-logo.svg" alt="Moviplex logo" /></div>
         </div>
         <div class="row">
           <div class="col-lg-4 col-12">
@@ -107,7 +107,7 @@ footer ul.social li {
 </div>
 <!--Main Container-->
 
-<a href="https://wa.me/34639514689" class="whatssap-btn"><img src="../assets/images/icon-whatsapp.png"
+<a href="https://wa.me/34639514689" class="whatssap-btn"><img src="./assets/images/icon-whatsapp.png"
     alt="Whatsapp icon"></a>
 
 </main>

@@ -6,7 +6,7 @@ $type = $_GET["section"] ?? "games";
 $slug = $_GET["slug"] ?? (($type == "games") ? "action-games" : "gaming-tips");
 
 
-$section = "moira-" . $slug;
+$section = MOIRA . $slug;
 
 if ($slug == "exclusive") {
   $type = "articles";
@@ -14,7 +14,7 @@ if ($slug == "exclusive") {
 
 $items = getSection($section, "en", $type);
 
-// 
+
 
 ?>
 
@@ -277,18 +277,20 @@ $items = getSection($section, "en", $type);
   <div class="row">
 
     <?php
-    foreach ($items as $play) {
+    foreach ($items as $item) {
     ?>
       <div class="col-lg-3 col-md-4 col-12 my-3 col">
         <div class="card">
           <div class="card-header">
-            <a href="<?= (isset($play->src)) ? STORAGEURL . $play->src : $play->excerpt ?>"><img loading="lazy" src="<?= STORAGEURL . $play->image ?>" alt="game" /></a>
-            <div class="border-btn"><a class="card-btn blue-btn" href="<?= (isset($play->src)) ? STORAGEURL . $play->src : $play->excerpt ?>">Play</a></div>
+
+          <a href="index.php?page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><img loading="lazy" src="<?= STORAGEURL . $item->image ?>" alt="game" /></a>
+
+            <div class="border-btn"><a class="card-btn blue-btn" href="index.php?page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><?= ($type == "games" || $slug == "exclusive") ? "Play" : "Read" ?></a></div>
           </div>
           <div class="card-body">
-            <h3 class="card-title"><?= (isset($play->name)) ? $play->name : $play->title ?></h3>
+            <h3 class="card-title"><?= (isset($item->name)) ? $item->name : $item->title ?></h3>
             <p class="card-text">
-              <?= (isset($play->description)) ? $play->description : $play->meta_description ?>
+              <?= (isset($item->description)) ? $item->description : $item->meta_description ?>
             </p>
             <div class="card-info">
               <div class="tag-name">
