@@ -119,7 +119,7 @@ $items = getSection($section, "en", $type);
               <circle cx="6" cy="18" r="3"></circle>
               <circle cx="18" cy="16" r="3"></circle>
             </svg>
-            Music</a><a class="btn btn-secondary blue tag-icon" href="index.php?page=play&section=games&slug=online-games"><svg
+            Music</a><a class="btn btn-secondary blue tag-icon" href="index.php?page=play&section=articles&slug=online-games"><svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
