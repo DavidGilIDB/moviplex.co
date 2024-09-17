@@ -7,6 +7,8 @@ $recents = getSectionMovies('Comedy');
 }else{
 $section['play'] = [['games','moira-top-games'], ['games','moira-recently-added']];
 $section['fitness'] = [['videos','moira-health-fitness-videos'], ['videos','moira-lower-back-arms-and-legs-exercises']];
+$section['learn'] = [['apps','moira-education-apps'], ['apps','moira-ebooks']];
+$section['enjoy'] = [['videos','moira-animal-videos'], ['apps','moira-lifestyle-apps']];
 
 
 $recents = getSection($section[$_GET['page']][1][1], "en", $section[$_GET['page']][1][0]);
@@ -38,6 +40,12 @@ $exclusives = getSection('moira-exclusives-games', "en", "articles");
         break;
       case 'fitness':
         include "components/fitness-main.php";
+        break;
+      case 'learn':
+        include "components/learn-main.php";
+        break;
+      case 'enjoy':
+        include "components/enjoy-main.php";
         break;
         
     }
