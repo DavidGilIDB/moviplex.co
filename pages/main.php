@@ -1,6 +1,7 @@
 <?php 
 
 if($_GET['page']=="watch"){
+  
 $recents = getSectionMovies('Comedy');
 
 

@@ -3,7 +3,7 @@
 session_start();
 header("X-Frame-Options: sameorigin");
 
-include ("Global.php");
+include("Global.php");
 
 /**
  * if there is a page, shows the page but not the home page
@@ -14,7 +14,7 @@ include ("Global.php");
 $page = isset($_GET['page']) ? $_GET['page'] : "";
 
 
-include ("session.php");
+include("session.php");
 
 if ($page == '' || $page == ' ' || $page == null) {
   $page = 'home';
@@ -63,15 +63,34 @@ setcookie('lang', $_COOKIE['lang']);
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
-  <!-- Google Tag Manager -->
-  <script>(function (w, d, s, l, i) {
-      w[l] = w[l] || []; w[l].push(
 
-        { 'gtm.start': new Date().getTime(), event: 'gtm.js' }
-      ); var f = d.getElementsByTagName(s)[0],
-        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', 'GTM-KH2RMCGW');</script>
+
+
+  <link rel="stylesheet" href="//cdn.flowplayer.com/releases/native/3/stable/style/flowplayer.css">
+  <script src="//cdn.flowplayer.com/releases/native/3/stable/flowplayer.min.js"></script>
+  <!-- Optional plugins -->
+  <script src="//cdn.flowplayer.com/releases/native/3/stable/plugins/hls.min.js"></script>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push(
+
+        {
+          'gtm.start': new Date().getTime(),
+          event: 'gtm.js'
+        }
+      );
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KH2RMCGW');
+  </script>
   <!-- End Google Tag Manager -->
 
   <script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/f32c25ee4abf3104420f7e329b961ccf.js"></script>
@@ -115,7 +134,7 @@ setcookie('lang', $_COOKIE['lang']);
 
   <?php if (isset($result)) {
 
-    ?>
+  ?>
     <script>
       var player;
 
@@ -150,7 +169,7 @@ setcookie('lang', $_COOKIE['lang']);
         mute: true
       });
     </script>
-    <?php
+  <?php
   }
   ?>
 

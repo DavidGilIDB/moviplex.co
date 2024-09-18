@@ -322,7 +322,29 @@ function getSectionMovies($section)
         return '';
     }
 }
+function getMovie($slug){
 
+    $url = "https://stream-api.d1b.pw/videoSlug?slug=" . $slug;
+    
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 60);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    
+    $response = json_decode(curl_exec($ch));
+    $statusRequest = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+    
+
+    if ($statusRequest == 200) {
+        return $response;
+    } else {
+        return '';
+    }
+
+}
 function getItem($section, $id, $lang = 'en')
 {
     $url = CMSURL . "content/single-item/" . $section . "/" . $id . "/" . $lang;
@@ -469,4 +491,17 @@ function getSectionType($section, $lang)
     } else {
         die("Error getting content!");
     }
+}
+
+function pageColor($type){
+return match($type){
+
+    "play" => "blue",
+    "watch" => "red",
+    "fitness" => "green",
+    "learn" => "yellow",
+    "enjoy" => "purple"
+
+};
+
 }

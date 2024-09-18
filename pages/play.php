@@ -1,18 +1,18 @@
 <?php
 
-$type = $_GET["section"] ?? "games";
+$nom_section = $_GET["section"] ?? "games";
 
 
-$slug = $_GET["slug"] ?? (($type == "games") ? "action-games" : "gaming-tips");
+$slug = $_GET["slug"] ?? (($nom_section == "games") ? "action-games" : "gaming-tips");
 
 
 $section = MOIRA . $slug;
 
 if ($slug == "exclusive") {
-  $type = "articles";
+  $nom_section = "articles";
 }
 
-$items = getSection($section, "en", $type);
+$items = getSection($section, "en", $nom_section);
 
 
 
@@ -23,7 +23,7 @@ $items = getSection($section, "en", $type);
 </div>
 <div class="container py-2">
   <?php
-  if ($type == "games" || $slug == "exclusive") {
+  if ($nom_section == "games" || $slug == "exclusive") {
   ?>
     <div class="row py-2 justify-content-center overflow-auto">
       <div class="categories" role="group" aria-label="Basic example">
@@ -208,7 +208,7 @@ $items = getSection($section, "en", $type);
       </div>
     </div>
   <?php
-  } elseif ($type == "articles") {
+  } elseif ($nom_section == "articles") {
   ?>
     <div class="row py-2 justify-content-center overflow-auto">
       <div class="categories" role="group" aria-label="Basic example">
@@ -285,7 +285,7 @@ $items = getSection($section, "en", $type);
 
           <a href="index.php?page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><img loading="lazy" src="<?= STORAGEURL . $item->image ?>" alt="game" /></a>
 
-            <div class="border-btn"><a class="card-btn blue-btn" href="index.php?page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><?= ($type == "games" || $slug == "exclusive") ? "Play" : "Read" ?></a></div>
+            <div class="border-btn"><a class="card-btn blue-btn" href="index.php?page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><?= ($nom_section == "games" || $slug == "exclusive") ? "Play" : "Read" ?></a></div>
           </div>
           <div class="card-body">
             <h3 class="card-title"><?= (isset($item->name)) ? $item->name : $item->title ?></h3>
