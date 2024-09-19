@@ -10,11 +10,9 @@ $type = getSectionType($section, "en");
 
 $obj = getItem($type, $id, "en");
 
-
-
 $item = current($obj);
 
-$exclusive_games = getSection(MOIRA . "exclusive", "en", "articles");
+$exclusive_games = getSection(MOIRA . "exclusive", "en", "articles")[0];
 
 $exclusive_games = array_splice($exclusive_games, 0, 8);
 
@@ -59,7 +57,7 @@ $random_number = rand(1000, 9000);
             <div class="col-12 col-sm-7 d-flex flex-column justify-content-start col">
                 <h2 class="singleGameAbout">About</h2>
                 <div>
-                    <?= $item->description ?? $item->body ?>
+                    <?= $item->description ?? $item->body ?? "" ?>
                 </div>
             </div>
         </div>
