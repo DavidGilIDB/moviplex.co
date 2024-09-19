@@ -28,7 +28,7 @@ $items = getSection($section, "en", $nom_section);
 <div class="container py-2">
   <?php
   if ($nom_section == "games" || $slug == "exclusive" || $slug == "online-games") {
-    $tag_name = ucfirst(str_replace("-games","",$slug));
+    $tag_name = ucfirst(str_replace("-games", "", $slug));
     $btn_name = "Play";
   ?>
     <div class="row py-2 justify-content-center overflow-auto">
@@ -42,7 +42,7 @@ $items = getSection($section, "en", $nom_section);
               fill="none"
               stroke="currentColor"
               stroke-width="2"
-              stroke-linecap="round" 
+              stroke-linecap="round"
               stroke-linejoin="round"
               class="lucide lucide-sword">
               <polyline points="14.5 17.5 3 6 3 3 6 3 17.5 14.5"></polyline>
@@ -217,10 +217,10 @@ $items = getSection($section, "en", $nom_section);
   } elseif ($nom_section == "articles") {
 
     $tag_name = "";
-    $arr = explode("-",str_replace("-articles","",$slug));
-    
+    $arr = explode("-", str_replace("-articles", "", $slug));
+
     foreach ($arr as $part) {
-      $tag_name.= (ucfirst($part)." ");
+      $tag_name .= (ucfirst($part) . " ");
     }
 
     $btn_name = "Read";
@@ -293,6 +293,8 @@ $items = getSection($section, "en", $nom_section);
 
     <?php
     foreach ($items[0] as $item) {
+      $random_decimal = round(rand(400, 500) / 100, 1);
+      $random_number = rand(1000, 9000);
     ?>
       <div class="col-lg-3 col-md-4 col-12 my-3 col">
         <div class="card">
@@ -319,13 +321,13 @@ $items = getSection($section, "en", $nom_section);
                 <img
                   src="data:image/svg+xml,%3csvg%20width='8'%20height='8'%20viewBox='0%200%208%208'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cpath%20d='M4%206.69976L5.93994%207.92746C6.29521%208.15245%206.72994%207.81985%206.63645%207.3992L6.12225%205.09054L7.83781%203.53513C8.15101%203.25144%207.98272%202.71341%207.57136%202.67917L5.31355%202.47863L4.43006%200.297142C4.27112%20-0.0990473%203.72888%20-0.0990473%203.56994%200.297142L2.68645%202.47374L0.428637%202.67428C0.017276%202.70852%20-0.151008%203.24655%200.162187%203.53024L1.87775%205.08565L1.36355%207.39431C1.27006%207.81496%201.70479%208.14756%202.06006%207.92257L4%206.69976Z'%20fill='%23FFA331'/%3e%3c/svg%3e"
                   alt="star review" />
-                <p class="miqro">4.5</p>
+                <p class="miqro"><?= $random_decimal ?></p>
               </div>
               <div class="review">
                 <img
                   src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='16'%20height='16'%20viewBox='0%200%2016%2016'%20fill='none'%3e%3cpath%20d='M6.79512%2016C6.58295%2016%206.44151%2015.9304%206.30006%2015.7913L0.430068%2010.0174C0.00573106%209.6%20-0.135714%209.04348%200.147177%208.48696C0.430068%207.93044%200.854405%207.65217%201.42019%207.65217H3.96621C4.31982%203.33913%207.99741%200%2012.4529%200H15.2819C15.6355%200%2015.9184%200.278261%2015.9891%200.626087C16.0598%200.973913%2015.7769%201.32174%2015.4233%201.3913H15.2819C12.1701%202.08696%209.97765%204.5913%209.62404%207.65217H12.0993C12.6651%207.65217%2013.1602%208%2013.3723%208.48696C13.5845%208.97391%2013.4431%209.6%2013.0895%2010.0174L7.21946%2015.7913C7.14874%2015.9304%206.93657%2016%206.79512%2016Z'%20fill='%23FFA331'/%3e%3c/svg%3e"
                   alt="star review" />
-                <p class="miqro">4514</p>
+                <p class="miqro"><?= $random_number ?></p>
               </div>
             </div>
           </div>
