@@ -63,7 +63,7 @@
             <a href="index.php?page=learn&section=articles">Articles</a>
           </li>
           <li>
-            <a href="index.php?page=learn&section=e-boooks">E-Books</a>
+            <a href="index.php?page=learn&section=e-books">E-Books</a>
           </li>
           <li>
             <a href="index.php?page=learn&section=audio-books">Audio Books</a>

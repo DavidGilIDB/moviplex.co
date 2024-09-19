@@ -9,9 +9,7 @@ $result = getMultySection($sections, 'en');
 <main class="product">
   <div class="movie_card">
     <div class="movie-view">
-      <button type="button" class="video-player" data-bs-toggle="modal" data-bs-target="#subscriptionModal" onclick="playVideo('<?php if (isset($_SESSION['login']) == true) {
-                                                                                                                                  echo $result[0]->urlVideo;
-                                                                                                                                } ?>');">
+      <button type="button" class="video-player" data-bs-toggle="modal" data-bs-target="#subscriptionModal" onclick="playVideo('<?php if (isset($_SESSION['login']) == true) { echo $result[0]->urlVideo;} ?>');">
         <!--<img class="play-icon" src="assets/images/play-icon.png" />
         <img class="trailer-image" src="assets/images/trailer.png" /> -->
         <?php if (isset($result[0]->urlTrailer) == null) { ?>
@@ -54,9 +52,7 @@ $result = getMultySection($sections, 'en');
           <?php
           } ?>
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-watch" data-bs-toggle="modal" data-bs-target="#subscriptionModal" onclick="playVideo('<?php if (isset($_SESSION['login']) == true) {
-                                                                                                                                        echo $result[0]->urlVideo;
-                                                                                                                                      } ?>');">
+          <button type="button" class="btn btn-watch" data-bs-toggle="modal" data-bs-target="#subscriptionModal" onclick="playVideo('<?php if (isset($_SESSION['login']) == true) { echo $result[0]->urlVideo;} ?>');">
             WATCH
           </button>
 
@@ -66,7 +62,7 @@ $result = getMultySection($sections, 'en');
                 <button type="button" class="close-modal" data-bs-dismiss="modal" aria-label="Close" onclick="stopVideo('<?php if (isset($_SESSION['login']) == true) {
                                                                                                                             echo $result[0]->urlVideo;
                                                                                                                           } ?>');"><img src="assets/images/close-mark.svg" alt="Close"></button>
-                <div class="modal-body">
+                <div class="modal-body"
                   <?php if (isset($_SESSION['pay_status']) === true) { ?>
                     <div id="player"></div>
                   <?php } else { ?>

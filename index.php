@@ -20,7 +20,7 @@ if ($page == '' || $page == ' ' || $page == null) {
   $page = 'home';
 }
 
-if(isset($page) && !isset($_GET['section']) && ($page!="home")){
+if (isset($page) && !isset($_GET['section']) && ($page != "home")) {
   $page = "main";
 }
 
@@ -64,7 +64,8 @@ setcookie('lang', $_COOKIE['lang']);
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
-
+  <!-- ICONS -->
+  
 
   <link rel="stylesheet" href="//cdn.flowplayer.com/releases/native/3/stable/style/flowplayer.css">
   <script src="//cdn.flowplayer.com/releases/native/3/stable/flowplayer.min.js"></script>
@@ -94,6 +95,7 @@ setcookie('lang', $_COOKIE['lang']);
   <!-- End Google Tag Manager -->
 
   <script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/f32c25ee4abf3104420f7e329b961ccf.js"></script>
+  
 </head>
 
 <body>
