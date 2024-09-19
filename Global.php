@@ -191,15 +191,8 @@ function getSection($section, $lang, $type)
     $response = json_decode(curl_exec($ch));
     $statusRequest = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
-    // $datetime2 = dateTimeToMilliseconds(new DateTime());
-    // $interval = $datetime2 - $datetime1;
-    // echo 'MILLIS: ' . $interval;
-
-    // echo json_encode($response);
-    // echo $statusRequest;
-
     if ($statusRequest == 200 && $response->status == 200) {
-        return $response->content->$type;
+        return [$response->content->$type, $response->section_display_title];
     } else if ($statusRequest == 401) {
         // echo $_SESSION['access_token'];
         unset($_SESSION['site_domain']);
