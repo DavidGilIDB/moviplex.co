@@ -2,19 +2,19 @@
 
 $sections = ['Comedy', 'Thriller', 'Kids', 'Documentary', 'Drama'];
 
-$plays = getSection('moira-action-games', 'en', 'games');
+$plays = getSection('moira-action-games', 'en', 'games')[0];
 
 $watch = getSectionMovies('Comedy');
 
-$train = getSection('moira-health-fitness-videos', 'en', 'videos');
+$train = getSection('moira-health-fitness-videos', 'en', 'videos')[0];
 
-$learn = getSection('moira-education-apps', 'en', 'apps');
+$learn = getSection('moira-education-apps', 'en', 'apps')[0];
 
-$enjoy = getSection('moira-animal-videos', 'en', 'videos');
+$enjoy = getSection('moira-animal-videos', 'en', 'videos')[0];
 
-$exclsive = getSection('moira-exclusive', 'en', 'articles');
+$exclsive = getSection('moira-exclusive', 'en', 'articles')[0];
 
-$articlesTop = getSection('moira-most-read-articles', 'en', 'articles');
+$articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
 
 ?>
 <style>
