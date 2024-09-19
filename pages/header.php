@@ -43,13 +43,13 @@
             <a href="index.php?page=fitness&section=apps">Apps</a>
           </li>
           <li>
-            <a href="index.php?page=fitness&section=videos&slug=health-fitness-images&health-fitness-videos">Videos</a>
+            <a href="index.php?page=fitness&section=videos&slug=health-fitness-videos">Videos</a>
           </li>
           <li>
             <a href="index.php?page=fitness&section=images&section=images&slug=health-fitness-images">Gallery</a>
           </li>
           <li>
-            <a href="index.php?page=fitness&section=articles">Articles</a>
+            <a href="index.php?page=fitness&section=articles&slug=lifestyle-articles">Articles</a>
           </li>
         </ul>
       </li>
