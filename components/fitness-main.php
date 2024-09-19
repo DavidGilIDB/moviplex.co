@@ -11,7 +11,7 @@
     <div class="swiper swiper-initialized swiper-horizontal mySwiper swiper-backface-hidden">
         <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px)">
 
-            <?php foreach ($recents as $app) { ?>
+            <?php foreach ($recents[0] as $app) { ?>
                 <div class="swiper-slide swiper-slide-active" style="width: 255.2px; margin-right: 30px">
                     <a href="#"><img src="<?= STORAGEURL . $app->image; ?>" /></a>
                 </div>
@@ -107,13 +107,13 @@
                     for ($article = 0; $article < 4; $article++) { ?>
                         <div class="article-card">
                             <picture><img
-                                    src="<?= STORAGEURL . $top[$article]->image; ?>"
+                                    src="<?= STORAGEURL .  $top[0][$article]->image; ?>"
                                     alt="Fortnite has become free on all platforms" /></picture>
                             <div class="article-content p-4">
-                                <h5><?= $top[$article]->name; ?></h5>
+                                <h5><?=  $top[0][$article]->name; ?></h5>
                                 <div class="excerp">
                                     <p>
-                                        <?= $top[$article]->description; ?>
+                                        <?=  $top[0][$article]->description; ?>
                                     </p>
                                 </div>
                             </div>

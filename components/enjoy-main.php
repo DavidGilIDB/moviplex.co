@@ -11,7 +11,7 @@
     <div class="swiper swiper-initialized swiper-horizontal mySwiper swiper-backface-hidden">
         <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px)">
 
-            <?php foreach ($recents as $app) { ?>
+            <?php foreach ($recents[0] as $app) { ?>
                 <div class="swiper-slide swiper-slide-active" style="width: 255.2px; margin-right: 30px">
                     <a href="#"><img src="<?= STORAGEURL . $app->image; ?>" /></a>
                 </div>

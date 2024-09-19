@@ -59,7 +59,7 @@ $exclusives = getSection('moira-exclusives-games', "en", "articles");
           <div class="swiper swiper-initialized swiper-horizontal mySwiper swiper-backface-hidden">
             <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px)">
 
-            <?php foreach ($exclusives as $article) { ?>
+            <?php foreach ($exclusives[0] as $article) { ?>
                 <div class="swiper-slide swiper-slide-active cards" style="width: 255.2px; margin-right: 30px">
                 <div class="card">
                   <div class="card-header">

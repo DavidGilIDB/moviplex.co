@@ -1,9 +1,9 @@
-<div class="header-title category header-green">
+<div class="header-title category header-yellow">
     <h1>
         <img
-            src="assets/icon-train.svg"
+            src="assets/icon-learn.svg"
             alt="logo" />
-        Train
+        Learn
     </h1>
 </div>
 <div class="latestUpdate bckPlay">
@@ -11,7 +11,7 @@
     <div class="swiper swiper-initialized swiper-horizontal mySwiper swiper-backface-hidden">
         <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px)">
 
-            <?php foreach ($recents as $app) { ?>
+            <?php foreach ($recents[0] as $app) { ?>
                 <div class="swiper-slide swiper-slide-active" style="width: 255.2px; margin-right: 30px">
                     <a href="#"><img src="<?= STORAGEURL . $app->image; ?>" /></a>
                 </div>
@@ -23,23 +23,23 @@
             <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span>
         </div>
     </div>
-    <a class="section-btn mt-4 d-block m-auto btnGreen" href="#/games/action-games">See All</a>
+    <a class="section-btn mt-4 d-block m-auto btnYellow" href="#/games/action-games">See All</a>
 </div>
 <div class="section-title text-center mb-0 pb-0 container">
     <h1>Our Apps &amp; training videos</h1>
     <p class="categoriesSub">&nbsp;Live a balanced and healthy life with our dedicated lifestyle and fitness section. Discover <span class="green">wellness tips</span>, personalised <span class="green">exercise routines</span> and <span class="green">healthy recipes</span></p>
 </div>
-<div class="main-sections"><a class="category-card green " href="/fitness/apps/moira-beauty">
+<div class="main-sections"><a class="category-card yellow " href="/fitness/apps/moira-beauty">
         <div class="category-card-content">
             <h3> Apps</h3>
             <p>Trends, beauty, advice that will make you feel good with yourself</p>
         </div><img class="category-card-image" src="assets/train-apps.png" alt="Games">
-    </a><a class="category-card green " href="/fitness/videos/moira-health-fitness-videos">
+    </a><a class="category-card yellow " href="/fitness/videos/moira-health-fitness-videos">
         <div class="category-card-content">
             <h3> Videos</h3>
             <p>Improve your physical power with our training videos.</p>
         </div><img class="category-card-image" src="assets/train-videos.png" alt="Games">
-    </a><a class="category-card green " href="/fitness/gallery/moira-health-fitness-images">
+    </a><a class="category-card yellow " href="/fitness/gallery/moira-health-fitness-images">
         <div class="category-card-content">
             <h3> Gallery</h3>
             <p>Stunning images to download about exercise and lifestyle</p>
@@ -107,13 +107,13 @@
                     for ($article = 0; $article < 4; $article++) { ?>
                         <div class="article-card">
                             <picture><img
-                                    src="<?= STORAGEURL . $top[$article]->image; ?>"
+                                    src="<?= STORAGEURL . $top[0][$article]->image; ?>"
                                     alt="Fortnite has become free on all platforms" /></picture>
                             <div class="article-content p-4">
-                                <h5><?= $top[$article]->name; ?></h5>
+                                <h5><?=  $top[0][$article]->name; ?></h5>
                                 <div class="excerp">
                                     <p>
-                                        <?= $top[$article]->description; ?>
+                                        <?=  $top[0][$article]->description; ?>
                                     </p>
                                 </div>
                             </div>
