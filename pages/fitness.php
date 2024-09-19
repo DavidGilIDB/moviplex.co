@@ -105,9 +105,9 @@ $items = getSection($section, "en", $type);
           <div class="card">
             <div class="card-header">
 
-              <a href="index.php?page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><img loading="lazy" src="<?= STORAGEURL . $item->image ?>" alt="game" /></a>
+              <a href="index.php?main=fitness&page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><img loading="lazy" src="<?= STORAGEURL . $item->image ?>" alt="game" /></a>
 
-              <div class="border-btn"><a class="card-btn green-btn" href="index.php?page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><?= ($type == "games" || $slug == "exclusive") ? "Play" : "Read" ?></a></div>
+              <div class="border-btn"><a class="card-btn green-btn" href="index.php?main=fitness&page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><?= ($type == "games" || $slug == "exclusive") ? "Play" : "Read" ?></a></div>
             </div>
             <div class="card-body">
               <h3 class="card-title"><?= (isset($item->name)) ? $item->name : $item->title ?></h3>
@@ -142,22 +142,20 @@ $items = getSection($section, "en", $type);
       <?php
       }
     } else { ?>
-    <div class="image-container">
-      <?php
-      foreach ($items[0] as $item) {
-      ?>
-      <img src="<?= STORAGEURL.$item->image ?>" alt="game">
-    <?php
-      }
-    ?>
       <div class="image-container">
+        <?php
+        foreach ($items[0] as $item) {
+        ?>
+          <img src="<?= STORAGEURL . $item->image ?>" alt="game">
+        <?php
+        }
+        ?>
+      </div>
     <?php
     }
     ?>
-    
-  </div>
-</div>
-<script
-  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-  crossorigin="anonymous"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"></script>

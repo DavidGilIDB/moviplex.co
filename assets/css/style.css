@@ -665,6 +665,40 @@ h1.title-legals {
   border: 0px;
 }
 
+.rhap_container {
+  background: transparent !important;
+  margin-top: 40px;
+  border: 1px solid #393939;
+  border-radius: 4px;
+  padding: 20px !important;
+}
+.rhap_progress-bar-show-download {
+  background-color: #5e5a5a !important;
+}
+.rhap_play-pause-button {
+  color: var(--magenta) !important;
+}
+.rhap_progress-filled,
+.rhap_download-progress {
+  background: var(--magenta) !important;
+  color: var(--magenta) !important;
+}
+.rhap_progress-indicator {
+  background: var(--magenta) !important;
+  border: 1px solid var(--white) !important;
+}
+.rhap_rewind-button,
+.rhap_forward-button,
+.rhap_time {
+  color: var(--white) !important;
+}
+
+.rhap_main {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
 .tag-icon svg {
   vertical-align: middle;
   width: 20px;

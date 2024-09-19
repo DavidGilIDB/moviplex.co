@@ -300,9 +300,9 @@ $items = getSection($section, "en", $nom_section);
         <div class="card">
           <div class="card-header">
 
-            <a href="index.php?page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><img loading="lazy" src="<?= STORAGEURL . $item->image ?>" alt="game" /></a>
+            <a href="index.php?main=play&page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><img loading="lazy" src="<?= STORAGEURL . $item->image ?>" alt="game" /></a>
 
-            <div class="border-btn"><a class="card-btn blue-btn" href="index.php?page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><?= $btn_name ?></a></div>
+            <div class="border-btn"><a class="card-btn blue-btn" href="index.php?main=play&page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><?= $btn_name ?></a></div>
           </div>
           <div class="card-body">
             <h3 class="card-title"><?= (isset($item->name)) ? $item->name : $item->title ?></h3>
