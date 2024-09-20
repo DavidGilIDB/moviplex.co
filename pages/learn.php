@@ -85,7 +85,7 @@ $items = getSection($section, "en", $type);
                     <div class="card-body">
                         <h3 class="card-title"><?= (isset($item->name)) ? $item->name : $item->title ?></h3>
                         <p class="card-text">
-                            <?= (isset($item->description)) ? $item->description : $item->meta_description ?>
+                            <?= (isset($item->description)) ? $item->description : ($item->meta_description ?? "") ?>
                         </p>
                         <div class="card-info">
                             <div class="tag-name">
