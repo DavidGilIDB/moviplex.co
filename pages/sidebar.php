@@ -16,14 +16,14 @@ $exclusive_games = array_splice($exclusive_games[0], 0, 8);
                 $number = rand(1000, 9000);
             ?>
 
-                <div class="swiper-slide cards" style="width: 218.667px; margin-right: 20px;">
+                <div class="swiper-slide cards <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"])) ? "noLogin" : "" ?>" style="width: 218.667px; margin-right: 20px;">
                     <div class="card">
                         <div class="card-header">
-                            <a href="index.php?page=single&section=exclusive&item=<?= $game->id ?>">
+                            <a <?= (!isset($_SESSION["login"]) || !$_SESSION["login"]) ? '' : "href=index.php?main=play&page=single&section=exclusive&item=" . $game->id ?>>
                                 <img src="<?= STORAGEURL . $game->image ?>" alt="game">
                             </a>
                             <div class="border-btn">
-                                <a href="index.php?page=single&section=exclusive&item=<?= $game->id ?>" class="card-btn blue-btn">Get</a>
+                                <a <?= (!isset($_SESSION["login"]) || !$_SESSION["login"]) ? '' : "href=index.php?main=play&page=single&section=exclusive&item=" . $game->id ?> class="card-btn blue-btn">Get</a>
                             </div>
                         </div>
                         <div class="card-body">

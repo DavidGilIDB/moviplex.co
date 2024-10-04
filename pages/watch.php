@@ -25,13 +25,13 @@ $movies = getSectionMovies($section);
             $random_number = rand(1000, 9000);
         ?>
 
-            <div class="col-lg-3 col-md-4 col-12 my-3 col">
+            <div class="col-lg-3 col-md-4 col-12 my-3 col <?= (!isset($_SESSION["login"]) || !$_SESSION["login"]) ? "noLogin" : "" ?>">
                 <div class="card">
                     <div class="card-header">
 
-                        <a href="index.php?page=movie&section=<?= $nom_section ?>&film_name=<?= $movie->slug ?>"><img src="<?= 'assets/images/films/cover/' . $movie->image ?>" alt=""/></a>
+                        <a <?= (!isset($_SESSION["login"]) || !$_SESSION["login"]) ? '' : "href=index.php?page=movie&section=". $nom_section."&film_name=". $movie->slug ?>><img src="<?= 'assets/images/films/cover/' . $movie->image ?>" alt=""/></a>
 
-                        <div class="border-btn"><a class="card-btn red-btn" href="index.php?page=movie&section=<?= $nom_section ?>&film_name=<?= $movie->slug ?>">Watch</a></div>
+                        <div class="border-btn"><a class="card-btn red-btn" <?= (!isset($_SESSION["login"]) || !$_SESSION["login"]) ? '' : "href=index.php?page=movie&section=". $nom_section."&film_name=". $movie->slug ?>>Watch</a></div>
                     </div>
                     <div class="card-body">
                         <h3 class="card-title"><?= (isset($movie->name)) ? $movie->name : $movie->title ?></h3>

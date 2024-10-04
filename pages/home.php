@@ -17,6 +17,7 @@ $exclsive = getSection('moira-exclusive', 'en', 'articles')[0];
 $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
 
 ?>
+
 <style>
   .container.full-width {
     min-width: 100%;
@@ -41,7 +42,9 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
     position: relative;
     z-index: 1;
   }
-
+  .carousel {
+    position: relative;
+}
   .hero .title {
     width: 100%;
     text-align: center;
@@ -230,6 +233,12 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
     animation-delay: 1.25s;
   }
 
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
   .hero-btn {
     font-size: 24px;
     font-weight: 700;
@@ -259,7 +268,19 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
     transform: scale(1);
   }
 
+  .intro-text {
+    font-size: 64px;
+    font-weight: 600;
+    line-height: normal;
+    max-width: 1280px;
+    margin: auto;
+    text-align: center;
+  }
 
+  .intro-text strong {
+    font-weight: 800;
+    color: var(--primary);
+  }
 
 
   /* media queries */
@@ -269,6 +290,10 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
       height: fit-content;
       padding: 15px;
       gap: 50px;
+    }
+
+    .intro-text {
+      font-size: 36px !important;
     }
 
     .hero .title h1 {
@@ -355,35 +380,35 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
       <div class="container">
         <div class="justify-content-center gap-3 row">
           <div class="col-xs-12 col-sm-3 col-lg-2">
-            <a href='' class='hero-card-bg play pop-up'>
+            <a href='index.php?page=play' class='hero-card-bg play pop-up'>
               <img src="assets/joystick.png" alt="joystick" />
               <h3>Play</h3>
               <p class="cat-description">Videogames & entertainment apps</p>
             </a>
           </div>
           <div class="col-xs-12 col-sm-3 col-lg-2">
-            <a href='' class='hero-card-bg watch pop-up'>
+            <a href='index.php?page=watch' class='hero-card-bg watch pop-up'>
               <img src="assets/popcorn.png" alt="movies" />
               <h3>watch</h3>
               <p class="cat-description">Dramas, comedies, thrillers and more</p>
             </a>
           </div>
           <div class="col-xs-12 col-sm-3 col-lg-2">
-            <a href='' class='hero-card-bg train pop-up'>
+            <a href='index.php?page=fitness' class='hero-card-bg train pop-up'>
               <img src="assets/weight.png" alt="weight" />
               <h3>Fitness</h3>
               <p class="cat-description">Lifestyle and fitness</p>
             </a>
           </div>
           <div class="col-xs-12 col-sm-3 col-lg-2">
-            <a href='' class='hero-card-bg learn pop-up'>
+            <a href='index.php?page=learn' class='hero-card-bg learn pop-up'>
               <img src="assets/book.png" alt="book" />
               <h3>Learn</h3>
               <p class="cat-description">Courses and tutorials</p>
             </a>
           </div>
           <div class="col-xs-12 col-sm-3 col-lg-2">
-            <a href='' class='hero-card-bg enjoy pop-up'>
+            <a href='index.php?page=enjoy' class='hero-card-bg enjoy pop-up'>
               <img src="assets/headphones.png" alt="headphones" />
               <h3>Enjoy</h3>
               <p class="cat-description">Articles, podcasts, videos and images</p>
@@ -432,7 +457,7 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
             <?php
             for ($i = 0; $i < 6; $i++) {
             ?>
-              <a class="gameIcon" href="/"><img loading="lazy" src="<?= STORAGE_URL . $plays[$i]->image; ?>" alt=""></a>
+              <a class="gameIcon" href="/"><img loading="lazy" src="<?= STORAGE_URL . $plays[$i]->image; ?>" alt="" width="195px" height="195px"></a>
             <?php
             } ?>
           </div>
@@ -453,7 +478,7 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
             for ($i = 0; $i < 6; $i++) {
             ?>
 
-              <a class="movie-btn" href="/watch/comedy/<?= $watch[$i]->slug; ?>"><img loading="lazy" src="assets/<?= $watch[$i]->image; ?>" alt=""></a>
+              <a class="movie-btn" href="/watch/comedy/<?= $watch[$i]->slug; ?>"><img loading="lazy" src="assets/<?= $watch[$i]->image; ?>" alt="" width="195px" height="195px"></a>
             <?php
             } ?>
           </div>
@@ -473,7 +498,7 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
             <?php
             for ($i = 0; $i < 6; $i++) {
             ?>
-              <a class="gameIcon" href="/"><img loading="lazy" src="<?= STORAGE_URL . $train[$i]->image; ?>" alt=""></a>
+              <a class="gameIcon" href="/"><img loading="lazy" src="<?= STORAGE_URL . $train[$i]->image; ?>" alt="" width="195px" height="195px"></a>
             <?php
             } ?>
           </div>
@@ -493,7 +518,7 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
             <?php
             for ($i = 0; $i < 6; $i++) {
             ?>
-              <a class="gameIcon" href="/"><img loading="lazy" src="<?= STORAGE_URL . $learn[$i]->image; ?>" alt=""></a>
+              <a class="gameIcon" href="/"><img loading="lazy" src="<?= STORAGE_URL . $learn[$i]->image; ?>" alt="" width="195px" height="195px"></a>
             <?php
             } ?>
           </div>
@@ -513,7 +538,7 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
             <?php
             for ($i = 0; $i < 6; $i++) {
             ?>
-              <a class="gameIcon" href="/"><img loading="lazy" src="<?= STORAGE_URL . $enjoy[$i]->image; ?>" alt=""></a>
+              <a class="gameIcon" href="/"><img loading="lazy" src="<?= STORAGE_URL . $enjoy[$i]->image; ?>" alt="" width="195px" height="195px"></a>
             <?php
             } ?>
           </div>
@@ -525,11 +550,11 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
           <h2 class="exclusives-title">Our Exclusives</h2>
           <div class="section-container">
             <div class="card">
-              <div class="card-header">
+              <div class="card-container <?= (!isset($_SESSION["login"]) || !$_SESSION["login"]) ? "noLogin" : "" ?>">
                 <?php
                 for ($i = 0; $i < 6; $i++) {
                 ?>
-                  <img loading="lazy" src="<?= STORAGE_URL . $enjoy[$i]->image; ?>" alt="game" />
+                  <img loading="lazy" src="<?= STORAGE_URL . $enjoy[$i]->image; ?>" alt="game" width="198px" height="198px" />
                 <?php
                 } ?>
               </div>
@@ -541,30 +566,41 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
         <div id="topArticlesSection">
           <div class="d-flex justify-content-center flex-column">
             <div class="topArticlesTitle d-flex justify-content-between align-items-center">
-            <h2>Top Articles</h2>
+              <h2>Top Articles</h2>
             </div>
             <div class="container d-flex gap-4 justify-content-center mt-5 articles-frame">
               <?php
-                for ($i = 0; $i < 4; $i++) {
+              for ($i = 0; $i < 4; $i++) {
               ?>
-              <a href="most-read/articles/top-10/<?= $articlesTop[$i]->id; ?>" class="article-card">
-              <picture>
-                  <img
-                    src="<?= STORAGE_URL . $articlesTop[$i]->image; ?>"
-                    alt="<?= $articlesTop[$i]->title; ?>"
-                  />
-                  <?php
-                } ?>
-                </picture>
-                <div class="article-content p-4">
-                  <h5><?= $articlesTop[$i]->title; ?></h5>
-                  <div class="excerp">
-                    <p><?= $articlesTop[$i]->excerpt; ?></p>
+                <a href="most-read/articles/top-10/<?= $articlesTop[$i]->id; ?>" class="article-card">
+                  <picture>
+                    <img
+                      src="<?= STORAGE_URL . $articlesTop[$i]->image; ?>"
+                      alt="<?= $articlesTop[$i]->title; ?>" />
+
+                  </picture>
+                  <div class="article-content p-4">
+                    <h5><?= $articlesTop[$i]->title; ?></h5>
+                    <div class="excerp">
+                      <p><?= $articlesTop[$i]->excerpt; ?></p>
+                    </div>
                   </div>
-                </div>
-              </a>
+                </a>
+                <?php 
+                }
+                    ?>
             </div>
           </div>
+        </div>
+      </div>
+      <div id="logoSection" class="section-container">
+        <div class="carousel">
+                <img src="./assets/logo-marvel.png" alt="">
+                <img src="./assets/logo-20th.png" alt="">
+                <img src="./assets/logo-miramax.png" alt="">
+                <img src="./assets/logo-disney.png" alt="">
+                <img src="./assets/logo-universal.png" alt="">
+                <img src="./assets/logo-columbia.png" alt="">
         </div>
       </div>
     </diV>

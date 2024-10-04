@@ -296,13 +296,13 @@ $items = getSection($section, "en", $nom_section);
       $random_decimal = round(rand(400, 500) / 100, 1);
       $random_number = rand(1000, 9000);
     ?>
-      <div class="col-lg-3 col-md-4 col-12 my-3 col">
+      <div class="col-lg-3 col-md-4 col-12 my-3 col <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"]) && $btn_name == "Read") ? "noLogin" : "" ?>">
         <div class="card">
           <div class="card-header">
 
-            <a href="index.php?main=play&page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><img loading="lazy" src="<?= STORAGEURL . $item->image ?>" alt="game" /></a>
+            <a <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"]) && $btn_name == "Read") ? '' : "href=index.php?main=play&page=single&section=" . $slug . "&item=" . $item->id ?>><img loading="lazy" src="<?= STORAGEURL . $item->image ?>" alt="game" /></a>
 
-            <div class="border-btn"><a class="card-btn blue-btn" href="index.php?main=play&page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><?= $btn_name ?></a></div>
+            <div class="border-btn"><a class="card-btn blue-btn" <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"]) && $btn_name == "Read") ? '' : "href=index.php?main=play&page=single&section=" . $slug . "&item=" . $item->id ?>> <?= $btn_name ?></a></div>
           </div>
           <div class="card-body">
             <h3 class="card-title"><?= (isset($item->name)) ? $item->name : $item->title ?></h3>

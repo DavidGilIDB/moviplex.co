@@ -74,13 +74,13 @@ $items = getSection($section, "en", $type);
             $random_decimal = round(rand(400, 500) / 100, 1);
             $random_number = rand(1000, 9000);
         ?>
-            <div class="col-lg-3 col-md-4 col-12 my-3 col">
+            <div class="col-lg-3 col-md-4 col-12 my-3 col <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"]) && ($nom_section == "articles" || $btn_name == "Listen")) ? 'noLogin' : "" ?> ">
                 <div class="card">
                     <div class="card-header">
 
-                        <a href="index.php?main=learn&page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><img loading="lazy" src="<?= STORAGEURL . $item->image ?>" alt="game" /></a>
+                        <a <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"]) && ($nom_section == "articles" || $btn_name == "Listen")) ? '' : "href=index.php?main=learn&page=single&section=" . $slug . "&item=" . $item->id ?>><img loading="lazy" src="<?= STORAGEURL . $item->image ?>" alt="game" /></a>
 
-                        <div class="border-btn"><a class="card-btn yellow-btn" href="index.php?main=learn&page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><?= $btn_name ?></a></div>
+                        <div class="border-btn"><a class="card-btn yellow-btn" <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"]) && ($nom_section == "articles" || $btn_name == "Listen")) ? '' : "href=index.php?main=learn&page=single&section=" . $slug . "&item=" . $item->id ?>><?= $btn_name ?></a></div>
                     </div>
                     <div class="card-body">
                         <h3 class="card-title"><?= (isset($item->name)) ? $item->name : $item->title ?></h3>

@@ -17,8 +17,8 @@ $slug = $_GET["slug"] ?? $default_slug;
 
 $section = MOIRA . $slug;
 
-if(str_contains($section,"gaming-images") || str_contains($section,"funny-images")){
-    $section = str_replace("moira-","",$section);
+if (str_contains($section, "gaming-images") || str_contains($section, "funny-images")) {
+    $section = str_replace("moira-", "", $section);
 }
 $items = getSection($section, "en", $type);
 
@@ -64,7 +64,7 @@ $items = getSection($section, "en", $type);
                     <a href="index.php?page=enjoy&section=gallery&slug=animals-images" class="btn btn-secondary purple"><img src="assets/paw.svg" alt="">Animal</a>
                 <?php
                 } else {
-                $btn_name = "Read";
+                    $btn_name = "Read";
                 ?>
                     <a href="index.php?page=enjoy&section=articles&slug=fun-facts" class="btn btn-secondary purple"><img src="assets/lightbulb.svg" alt="">Fun Facts</a>
                 <?php
@@ -84,13 +84,13 @@ $items = getSection($section, "en", $type);
                 $random_number = rand(1000, 9000);
         ?>
 
-                <div class="col-lg-3 col-md-4 col-12 my-3 col">
+                <div class="col-lg-3 col-md-4 col-12 my-3 col <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"]) && ($nom_section == "articles" || $nom_section == "videos")) ? 'noLogin' : "" ?>">
                     <div class="card">
                         <div class="card-header">
 
-                            <a href="index.php?main=enjoy&page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><img loading="lazy" src="<?= STORAGEURL . $item->image ?>" alt="game" /></a>
+                            <a <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"]) && ($nom_section == "articles" || $nom_section == "videos")) ? '' : "href=index.php?main=enjoy&page=single&section=" . $slug . "&item=" . $item->id ?>><img loading="lazy" src="<?= STORAGEURL . $item->image ?>" alt="game" /></a>
 
-                            <div class="border-btn"><a class="card-btn purple-btn" href="index.php?main=enjoy&page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><?= $btn_name ?></a></div>
+                            <div class="border-btn"><a class="card-btn purple-btn" <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"]) && ($nom_section == "articles" || $nom_section == "videos")) ? '' : "href=index.php?main=enjoy&page=single&section=" . $slug . "&item=" . $item->id ?>><?= $btn_name ?></a></div>
                         </div>
                         <div class="card-body">
                             <h3 class="card-title"><?= (isset($item->name)) ? $item->name : $item->title ?></h3>

@@ -12,7 +12,7 @@
         <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px)">
 
             <?php foreach ($recents[0] as $app) { ?>
-                <div class="swiper-slide swiper-slide-active" style="width: 255.2px; margin-right: 30px">
+                <div class="swiper-slide swiper-slide-active <?= (!isset($_SESSION["login"]) || !$_SESSION["login"]) ? "noLogin" : "" ?>" style="width: 255.2px; margin-right: 30px">
                     <a href="#"><img src="<?= STORAGEURL . $app->image; ?>" /></a>
                 </div>
             <?php } ?>
@@ -105,7 +105,7 @@
 
                     <?php
                     for ($article = 0; $article < 4; $article++) { ?>
-                        <div class="article-card">
+                        <div class="article-card <?= (!isset($_SESSION["login"]) || !$_SESSION["login"]) ? "noLogin" : "" ?>">
                             <picture><img
                                     src="<?= STORAGEURL . $top[0][$article]->image; ?>"
                                     alt="Fortnite has become free on all platforms" /></picture>
