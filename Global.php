@@ -1,7 +1,7 @@
 <?php
 
 define("DOMAIN", "moviplex-new.co");
-define("SERVICE", "mobile2go");
+define("SERVICE", "MOVIPLEX");
 define("COUNTRYID", "");
 define("COUNTRY", "");
 define("PREFIX", "");
@@ -9,7 +9,7 @@ define("EMAIL", "");
 define("SUBJECT", "");
 define("APIURL", "");
 define("CONTACTURL", "");
-define("LOGINURLEMAIL", "https://payment-backend.v8c.pw/user/loginOtp?");
+define("LOGINURLEMAIL", "https://payment-backend.v8c.pw/user/loginOtp");
 define("SIGNUPURLEMAIL", "https://stream-api.d1b.pw/api5/signup_email");
 define("LOGINURL", "https://stream-api.d1b.pw/api/signup");
 define("VERIFICATIONURL", "https://payment-backend.v8c.pw/user/verifyOtp");

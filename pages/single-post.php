@@ -1,3 +1,6 @@
+<?php
+$src = isset($item->src) ? $item->src : $item->excerpt;
+?>
 <div class="row">
     <h1><?= $item->name ?? $item->title ?></h1>
 </div>
@@ -19,7 +22,7 @@
                 <p class="miqro"><?= $random_number ?></p>
             </div>
         </div>
-        <a href="<?= STORAGEURL . $item->src ?>" type="button" class="btn-primary blue">Download</a>
+        <a <?= (!isset($_SESSION["login"]) || !$_SESSION["login"]) ? "" : 'href="' . STORAGEURL . $src . '"' ?> type="button" class="btn-primary blue <?= (!isset($_SESSION["login"]) || !$_SESSION["login"]) ? "noLogin" : "" ?>">Download</a>
     </div>
     <div class="col-12 col-sm-7 d-flex flex-column justify-content-start col">
         <h2 class="singleGameAbout">About</h2>

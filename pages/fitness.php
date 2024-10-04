@@ -101,13 +101,13 @@ $items = getSection($section, "en", $type);
     if ($type != "images") {
       foreach ($items[0] as $item) {
     ?>
-        <div class="col-lg-3 col-md-4 col-12 my-3 col">
+        <div class="col-lg-3 col-md-4 col-12 my-3 col <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"]) && ($nom_section == "articles" || $nom_section == "videos")) ? 'noLogin' : "" ?>">
           <div class="card">
             <div class="card-header">
 
-              <a href="index.php?main=fitness&page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><img loading="lazy" src="<?= STORAGEURL . $item->image ?>" alt="game" /></a>
+              <a <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"]) && ($nom_section == "articles" || $nom_section == "videos")) ? '' : "href=index.php?main=fitness&page=single&section=" . $slug . "&item=" . $item->id ?>><img loading="lazy" src="<?= STORAGEURL . $item->image ?>" alt="game" /></a>
 
-              <div class="border-btn"><a class="card-btn green-btn" href="index.php?main=fitness&page=single&section=<?= $slug ?>&item=<?= $item->id ?>"><?= ($type == "games" || $slug == "exclusive") ? "Play" : "Read" ?></a></div>
+              <div class="border-btn"><a class="card-btn green-btn" <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"]) && ($nom_section == "articles" || $nom_section == "videos")) ? '' : "href=index.php?main=fitness&page=single&section=" . $slug . "&item=" . $item->id ?>><?= ($type == "games" || $slug == "exclusive") ? "Play" : "Read" ?></a></div>
             </div>
             <div class="card-body">
               <h3 class="card-title"><?= (isset($item->name)) ? $item->name : $item->title ?></h3>
