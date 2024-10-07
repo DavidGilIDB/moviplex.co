@@ -5,6 +5,7 @@ $exclusive_games = getSection(MOIRA . "exclusive", "en", "articles");
 $exclusive_games = array_splice($exclusive_games[0], 0, 8);
 
 ?>
+
 <div class="my-2 row">
     <h6 class="singleGame__more">You may also like this</h6>
     <div class="swiper swiper-initialized swiper-horizontal mySwiper swiper-backface-hidden">

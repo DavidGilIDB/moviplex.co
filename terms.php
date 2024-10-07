@@ -5,24 +5,10 @@ header("X-Frame-Options: sameorigin");
 
 include("Global.php");
 
-/**
- * if there is a page, shows the page but not the home page
- * Session --> controls the user's session
- * This is the main page where all the php are inserted
- */
 
-$page = isset($_GET['page']) ? $_GET['page'] : "";
+$page = $_GET['page'] ?? "home";
 
 include("session.php");
-
-if ($page == '' || $page == ' ' || $page == null) {
-  $page = 'home';
-}
-
-
-/*if (($page != 'terms' && $page != 'contact'  && $page != 'otp-page') && (isset($_SESSION['login']) === false || $_SESSION['login'] != true)){
-        $page = 'login';
-}*/
 
 if (!empty($_GET['lang'])) {
   if ($_GET['lang'] == 'de' || $_GET['lang'] == 'es') {
@@ -30,7 +16,7 @@ if (!empty($_GET['lang'])) {
   } else {
     $_COOKIE['lang'] = 'en';
   }
-} else if (empty($_COOKIE['lang'])) {
+} elseif (empty($_COOKIE['lang'])) {
   $_COOKIE['lang'] = 'en';
 }
 setcookie('lang', $_COOKIE['lang']);
@@ -44,28 +30,25 @@ setcookie('lang', $_COOKIE['lang']);
   <meta name="description" content="">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <title>mobile2go.net</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
   <link rel="icon" href="assets/images/favicon.png">
   <link rel="stylesheet" href="assets/css/style.css">
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js">
-  </script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <?php include "pages/header.php";
-  include "pages/login.php";
-  include "pages/subscription.php";
+  <?php
+  include("pages/header.php");
+  include("pages/login.php");
+  include("pages/subscription.php");
   ?>
+
   <main>
     <div class="title-bar d-flex justify-content-center align-center">
       <div class="breadcrumb d-flex gap-2">
@@ -73,10 +56,8 @@ setcookie('lang', $_COOKIE['lang']);
           < </span>
             <a href="index.php" title="Back">Back</a>
       </div>
-
       <h1>Terms & Conditions</h1>
     </div>
-
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-10 col-lg-6">
@@ -87,20 +68,16 @@ setcookie('lang', $_COOKIE['lang']);
               29688 Estepona (Málaga) B93396885, will be referred to as "Company," "we," "us," or "our") henceforth. When you browse
               the website mobile2go.net and use the Services provided, you acquire the status of a user. The Company is
               engaged in mobile and web marketing and service provision.</p>
-
             <p>By using the Services and/or installing any of the Company's products, you are indicating your acceptance
               and agreement to be bound by these Terms and Conditions, as well as our Privacy Policy. Failure to adhere
               to these Terms and Conditions or any notices issued by the Company while using the Services may result in
               the termination of your access to the Services, blocking your access, and the removal of your right to use
               any of the our products, without further notice, and irrespective of any other actions taken by us.</p>
-
             <p>The Company reserves the right to modify these Terms and Conditions at any time, with any changes being
               reflected in an updated version available on the Website. The use of the Services implies full acceptance
               of the Terms and Conditions.</p>
-
             <p>We strongly recommend that you print or save a copy of these Terms and Conditions for your records,
               although they will be accessible on the Website at all times.</p>
-
             <h2>Service Description</h2>
             <p>The services accessible via the website allow registered users to enjoy gaming, high-quality content, and
               movies, and a wide array of other offering.</p>
@@ -116,7 +93,6 @@ setcookie('lang', $_COOKIE['lang']);
                 adhere to these terms. Additionally, the Services may offer premium membership (subject to availability
                 based on location), typically requiring a subscription fee.</li>
             </ul>
-
             <h2>Data from Third-Party Services for Accounts and Profiles</h2>
             <p>When you opt to log in, access, or establish a connection to the mobile2go Service or reach out to
               mobile2go.net via a third-party service (e.g., Facebook), please be aware that this method is entirely
@@ -126,13 +102,11 @@ setcookie('lang', $_COOKIE['lang']);
               any information you have granted the third-party service permission to share with us. This may encompass,
               for example, your user ID, billing details, public profile data, email address, date of birth, and profile
               information.</p>
-
             <p>You can provide Mediteran Union Investment, S.L. with access to your third-party accounts, such as Google, Facebook,
               and Instagram, to enable certain mobile2go features. Each time you link your third-party account, that
               specific third-party service will display a page outlining the information that The Company can retrieve.
               You retain the ability to revoke The Company's access to these accounts by using the security settings
               page provided by the respective third-party service. Here are the links for each service:</p>
-
             <h2>Advertising</h2>
             <p>We use third parties such as network advertisers to serve advertisements on our site and email
               newsletters. Network advertisers are third parties that display advertisements based on your visits to our
@@ -144,7 +118,6 @@ setcookie('lang', $_COOKIE['lang']);
               technologies are subject to the specific privacy policies of each third party, not the one presented here.
               We may provide these third-party advertisers with aggregated information about your usage of our website
               and services.</p>
-
             <h2>Accessing the Service Requirements</h2>
             <p>The Services provided by The Company are intended for individuals who are of legal age, 18 years or
               older, or, as applicable, emancipated minors possessing full legal capacity to enter into contracts.
@@ -164,7 +137,6 @@ setcookie('lang', $_COOKIE['lang']);
               rights and interests of The Company, its subsidiaries, or any other pertinent third party. The user will
               bear sole responsibility for any losses or damages resulting from improper or unlawful use of the
               Services.</p>
-
             <h2>Suitable</h2>
             <p>Our Services and products, which include but are not limited to Images and Videos, may not function
               properly on every type of Handset, Laptop, Desktop, or Electronic Device. You acknowledge that The Company
@@ -172,7 +144,6 @@ setcookie('lang', $_COOKIE['lang']);
               format is not available. It is the user's responsibility to ensure that their device is capable of
               displaying the following file formats (Picture – JPG, GIF, PNG) and (Movies – 3GP & MOV) or has the
               necessary software installed to access all of our services and products.</p>
-
             <h2>Fit & Health terms </h2>
             <p>The information presented on this site and in our email newsletter, including but not limited to all
               advice and recommendations, is intended solely for general educational and informational purposes. Before
@@ -197,11 +168,9 @@ setcookie('lang', $_COOKIE['lang']);
               health, fitness, and nutritional guidance provided on this site. There is no guarantee that the advice
               offered here will consistently incorporate the latest findings or developments concerning the subject
               matter.</p>
-
             <h2>Payment</h2>
             <p>We may offer premium membership services (subject to service location availability) that are billed on a
               subscription basis.</p>
-
             <h2>Intellectual Property Rights</h2>
             <p>We exclusively owns or holds the necessary licenses and authorizations for the intellectual property
               rights pertaining to the Services and all associated contents, which include, but are not limited to,
@@ -228,7 +197,6 @@ setcookie('lang', $_COOKIE['lang']);
               copyrighted material, trade names, trademarks, and other proprietary information, and is therefore
               protected by copyright laws, both registered and unregistered trademarks, database rights, and other
               intellectual property rights under English Intellectual Property Law.</p>
-
             <h2>Data Subject Rights</h2>
             <p>The Company is committed to ensuring that data subjects receive information and communication regarding
               data processing in a clear, concise, transparent, and easily accessible manner, using straightforward and
@@ -245,18 +213,15 @@ setcookie('lang', $_COOKIE['lang']);
               one month of receiving the request, and provide the reasons for the delay. If the data subject submits the
               request electronically, information will be furnished by electronic means where feasible, unless the data
               subject specifies otherwise.</p>
-
             <h2>Copyright</h2>
             <p>Mediteran Union Investment, S.L. ("we" or "us" or "our") upholds the rights of artists and content owners. Please be
               aware that Mediteran Union Investment, S.L. does not create any of the audio or video files featured on the site.
               This content is generated by third-party providers and hosted by mobile2go.</p>
-
             <h2>Assignment</h2>
             <p>We have the right to transfer the information included in these Terms and Conditions and the associated
               rights to any of its affiliated companies, subsidiaries, or divisions. The transfer of information will be
               conducted with the prior consent of the user and solely for the purpose of ensuring the proper execution
               of contracted Services.</p>
-
             <h2>Fraud</h2>
             <p>Engaging in fraudulent or abusive activities involving personal login credentials may lead to the
               termination of your account. The user bears responsibility for any fraudulent activity arising from the
@@ -264,14 +229,12 @@ setcookie('lang', $_COOKIE['lang']);
               natural persons, for their personal use. Sharing personal login details in any manner will be deemed
               fraudulent and a violation of these terms and conditions. Users found sharing such information will have
               their accounts deleted.</p>
-
             <h2>Compromise of Personal and Your Information</h2>
             <p>If there is a breach of security that leads to the compromise of certain personal information, we will
               promptly notify the individuals whose personal information has been compromised. We will follow the
               notification procedures outlined in this privacy policy or as otherwise mandated by applicable law. You
               have the option to decline the terms under which your information will be used. However, in such cases,
               The Company may not be able to provide you with certain services.</p>
-
             <h2>Children's Privacy</h2>
             <p>Safeguarding the privacy of children is of utmost importance. Therefore, The Company does not
               intentionally gather or request personal information from individuals under the age of 18. If you are
@@ -283,14 +246,12 @@ setcookie('lang', $_COOKIE['lang']);
             <p>In the event that we become aware of the presence of personal information belonging to someone under 18
               without proper parental consent, we will deactivate the account and expeditiously delete all associated
               personal information.</p>
-
             <h2>Link to other sites</h2>
             <p>We are not responsible for the practices employed by websites linked to our website/service or the
               information or contents contained therein. Please remember that when you use a link to go from the service
               to another website, our Privacy Policy is no longer valid. Your browsing on any other website, including
               those linked to the service is subject to that website's own rules and policies. Please read their rules
               and policies before proceeding.</p>
-
             <h2>Payment & Refunds </h2>
             <p>Our company holds our customers in high regard and is committed to delivering top-notch products and
               services. We recognize that there may be instances where customers wish to request a refund for a purchase
@@ -316,7 +277,6 @@ setcookie('lang', $_COOKIE['lang']);
                 refund to reflect on the User's credit card statement.</li>
             </ul>
             <p>Your subscription will automatically renew on a monthly basis at just 39,99 €/£ per month, using the credit card provided.</p>
-
             <h2>Amendments to Our Privacy Policy</h2>
             <p>Kindly be aware that this Privacy Policy may undergo revisions periodically. We will not restrict your
               rights under this Policy without your explicit agreement. We anticipate that most modifications will be of
@@ -326,25 +286,23 @@ setcookie('lang', $_COOKIE['lang']);
             <p>Should you have any inquiries regarding our Privacy Policy, The Company's practices, or your association
               with the service, please do not hesitate to reach out by sending an email to <a
                 href="mailto:support@mobile2go.net" title="support@mobile2go.net">support@mobile2go.net</a></p>
-
             <h2>Definitions</h2>
             <p>Data Controller: Refers to the natural or legal person, public authority, agency, or any other entity
               that, either independently or in conjunction with others, establishes the purposes and methods for
               processing personal data.</p>
-
             <p>These Terms and Conditions shall be governed by and construed in accordance with the laws of Spain. Any dispute or difference arising out of or in connection with this Agreement shall be determined by the Courts of the Spain, waiving both parties to any other court that may also correspond.</p>
           </div>
         </div>
       </div>
     </div>
   </main>
-  <?php include "pages/footer.php"; ?>
+
+  <?php
+  include("pages/footer.php")
+  ?>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <script src="assets/js/app.js"></script>
 </body>
 

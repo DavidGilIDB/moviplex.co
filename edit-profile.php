@@ -11,18 +11,9 @@ include("Global.php");
  * This is the main page where all the php are inserted
  */
 
-$page = isset($_GET['page']) ? $_GET['page'] : "";
+$page = $_GET['page'] ?? "home";
 
 include("session.php");
-
-if ($page == '' || $page == ' ' || $page == null) {
-  $page = 'home';
-}
-
-
-/*if (($page != 'terms' && $page != 'contact'  && $page != 'otp-page') && (isset($_SESSION['login']) === false || $_SESSION['login'] != true)){
-        $page = 'login';
-}*/
 
 if (!empty($_GET['lang'])) {
   if ($_GET['lang'] == 'de' || $_GET['lang'] == 'es') {
@@ -60,9 +51,11 @@ setcookie('lang', $_COOKIE['lang']);
 
 <body>
 
-  <?php include "pages/header.php";
-  include "pages/login.php";
-  include "pages/subscription.php"; ?>
+  <?php
+  include("pages/header.php");
+  include("pages/login.php");
+  include("pages/subscription.php");
+  ?>
 
   <main class="profile">
     <div class="title-header mb-0">
@@ -71,9 +64,7 @@ setcookie('lang', $_COOKIE['lang']);
           < </span>
             <a href="index.php" title="Back">Back</a>
       </div>
-
       <h1>Edit Profile</h1>
-
       <button class="profile-btn">
         <img class="profile-img" src="assets/images/profile.jpg" alt="Profile" />
       </button>
@@ -163,11 +154,13 @@ setcookie('lang', $_COOKIE['lang']);
       </div>
     </div>
   </main>
-  <?php include "pages/footer.php"; ?>
+
+  <?php
+  include("pages/footer.php")
+  ?>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
   <script src="assets/js/app.js"></script>
 </body>
 

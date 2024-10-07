@@ -43,28 +43,24 @@ switch ($main) {
 ?>
 
 <div class="header-title header-<?= $color ?>">
-
-    <h2>
-        <img src="./assets/<?= $icon ?>" alt="">
-        <?= $title ?>
-    </h2>
+    <h2><img src="./assets/<?= $icon ?>" alt=""><?= $title ?></h2>
     <button class="subcat-link" onclick="history.back()">Go Back</button>
 </div>
-
 <div class="container">
     <div class="single-game">
 
         <?php
 
-        if($type != "sounds" && $type != "videos"){
+        if ($type != "sounds" && $type != "videos") {
             include("single-post.php");
-        }elseif($type == "videos"){
+        } elseif ($type == "videos") {
             include("single-video.php");
-        }else{
+        } else {
             include("single-audio.php");
         }
 
         include("sidebar.php");
         ?>
+
     </div>
 </div>

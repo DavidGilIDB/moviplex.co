@@ -127,6 +127,10 @@ nav .menu {
   position: absolute;
   right: 20px;
 }
+nav .menu button {
+  background: none;
+  border: none;
+}
 
 nav li img {
   width: 30px;
@@ -208,9 +212,10 @@ nav li a:hover {
 }
 
 .mobile-menu {
+  display: none;
   position: absolute;
   top: 60px;
-  width: 160px;
+  width: 200px;
   height: fit-content;
   background: var(--white);
   opacity: 0.9;
@@ -235,7 +240,6 @@ nav li a:hover {
   padding: 10px 0;
   font-weight: 400 !important;
   display: flex;
-  justify-content: flex-start !important;
   text-transform: capitalize;
   cursor: pointer;
   transition: all 0.2s ease-out;
@@ -660,11 +664,6 @@ h1.title-legals {
   background-color: var(--green);
 }
 
-.tag-icon {
-  display: flex;
-  border: 0px;
-}
-
 .rhap_container {
   background: transparent !important;
   margin-top: 40px;
@@ -699,9 +698,14 @@ h1.title-legals {
   flex: 1 1 auto;
 }
 
-.tag-icon svg {
+.tag-icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.tag-icon img {
   vertical-align: middle;
-  width: 20px;
   margin-right: 5px;
 }
 

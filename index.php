@@ -5,20 +5,8 @@ header("X-Frame-Options: sameorigin");
 
 include("Global.php");
 
-/**
- * if there is a page, shows the page but not the home page
- * Session --> controls the user's session
- * This is the main page where all the php are inserted
- */
 
-$page = isset($_GET['page']) ? $_GET['page'] : "";
-
-
-// include("session.php");
-
-if ($page == '' || $page == ' ' || $page == null) {
-  $page = 'home';
-}
+$page = $_GET['page'] ?? "home";
 
 if (isset($page) && !isset($_GET['section']) && ($page != "home")) {
   $page = "main";
@@ -30,15 +18,13 @@ if (!empty($_GET['lang'])) {
   } else {
     $_COOKIE['lang'] = 'en';
   }
-} else if (empty($_COOKIE['lang'])) {
+} elseif (empty($_COOKIE['lang'])) {
   $_COOKIE['lang'] = 'en';
 }
+
 setcookie('lang', $_COOKIE['lang']);
 
-
-
 if (isset($_POST["btnSubmitEmail"])) {
-
 
   $email = $_POST["email"];
 
@@ -71,7 +57,6 @@ if (isset($_POST["btnSubmitEmail"])) {
   $response = curl_exec($curl_handle);
   curl_close($curl_handle);
 
-
   if ($response == 'OK') {
 
     $_SESSION['login'] = true;
@@ -87,7 +72,6 @@ if (isset($_POST["btnSubmitEmail"])) {
   }
 }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -98,22 +82,18 @@ if (isset($_POST["btnSubmitEmail"])) {
   <meta name="description" content="">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <title>Moviplex</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
   <link rel="icon" href="assets/images/favicon.png">
   <link rel="stylesheet" href="assets/css/style.css">
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js">
-  </script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- ICONS -->
-
-
+   
   <link rel="stylesheet" href="//cdn.flowplayer.com/releases/native/3/stable/style/flowplayer.css">
   <script src="//cdn.flowplayer.com/releases/native/3/stable/flowplayer.min.js"></script>
   <!-- Optional plugins -->
@@ -391,15 +371,11 @@ if (isset($_POST["btnSubmitEmail"])) {
     });
   </script>
 
-
   <div class="modal-background <?= (isset($_SESSION["login"]) && $_SESSION["login"]) ? "close" : "" ?>">
-
     <div class="modal-container-email">
-
       <div class="close-modal-email <?= (isset($showOpt) && $showOpt) ? "close" : "" ?>">
         <button><img src="./assets/close.svg" alt="Close icon" class="closeIcon"></button>
       </div>
-
       <div class="form-modal-email">
         <h4>Email</h4>
         <form action="<?= $_SERVER["PHP_SELF"] ?>" method="post">
@@ -409,16 +385,11 @@ if (isset($_POST["btnSubmitEmail"])) {
         <p><span>Continue without login</span> or <a href="https://premium.moviplex.co/en/index.php">Register</a></p>
         <span><?= (isset($error_email)) ? $error_email : "" ?></span>
       </div>
-
     </div>
-
-
     <div class="modal-container-otp">
-
       <div class="close-modal-otp">
         <button><img src="./assets/close.svg" alt="Close icon" class="closeIcon"></button>
       </div>
-
       <div class="form-modal-otp <?= (isset($showOpt) && $showOpt) ? "open" : "close" ?>">
         <h4>OTP</h4>
         <form action="<?= $_SERVER["PHP_SELF"] ?>" method="post">
@@ -428,9 +399,7 @@ if (isset($_POST["btnSubmitEmail"])) {
         <p><span>Continue without login</span> or <a href="https://premium.moviplex.co/en/index.php">Register</a></p>
         <span><?= (isset($error_email)) ? $error_email : "" ?></span>
       </div>
-
     </div>
-
   </div>
 
   <?php
@@ -459,13 +428,14 @@ if (isset($_POST["btnSubmitEmail"])) {
     include "pages/footer.php";
   }
   ?>
+
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
     crossorigin="anonymous"></script>
 
-  <?php if (isset($result)) {
-
+  <?php
+  if (isset($result)) {
   ?>
     <script>
       var player;
@@ -501,10 +471,10 @@ if (isset($_POST["btnSubmitEmail"])) {
         mute: true
       });
     </script>
+
   <?php
   }
   ?>
-
 
   <script src="assets/js/app.js"></script>
 </body>

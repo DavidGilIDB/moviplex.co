@@ -5,37 +5,27 @@ header("X-Frame-Options: sameorigin");
 
 include("Global.php");
 
-/**
- * if there is a page, shows the page but not the home page
- * Session --> controls the user's session
- * This is the main page where all the php are inserted
- */
 
-$page = isset($_GET['page']) ? $_GET['page'] : "";
+
+$page = $_GET['page'] ??  'home';
 
 include("session.php");
 
-if ($page == '' || $page == ' ' || $page == null) {
-  $page = 'home';
-}
-
-
-/*if (($page != 'terms' && $page != 'contact'  && $page != 'otp-page') && (isset($_SESSION['login']) === false || $_SESSION['login'] != true)){
-        $page = 'login';
-}*/
 
 if (!empty($_GET['lang'])) {
-  if ($_GET['lang'] == 'de' || $_GET['lang'] == 'es') {
-    $_COOKIE['lang'] = $_GET['lang'];
-  } else {
+    if ($_GET['lang'] == 'de' || $_GET['lang'] == 'es') {
+        $_COOKIE['lang'] = $_GET['lang'];
+    } else {
+        $_COOKIE['lang'] = 'en';
+    }
+} elseif (empty($_COOKIE['lang'])) {
     $_COOKIE['lang'] = 'en';
-  }
-} else if (empty($_COOKIE['lang'])) {
-  $_COOKIE['lang'] = 'en';
 }
+
 setcookie('lang', $_COOKIE['lang']);
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,23 +49,22 @@ setcookie('lang', $_COOKIE['lang']);
 </head>
 
 <body>
-    
-    <?php include "pages/header.php";
-    include "pages/login.php";
-    include "pages/subscription.php"; ?>
+
+    <?php
+    include("pages/header.php");
+    include("pages/login.php");
+    include("pages/subscription.php");
+    ?>
 
     <main class="profile">
-
         <div class="title-bar d-flex justify-content-center align-items-center">
             <div class="breadcrumb d-flex gap-2">
                 <span>
                     < </span>
                         <a href="index.php" title="Back">Back</a>
             </div>
-
             <h1>Account</h1>
         </div>
-
         <div class="container">
             <div class="active-subs">
                 <h3>Active</h3>
@@ -104,11 +93,13 @@ setcookie('lang', $_COOKIE['lang']);
             </div>
         </div>
     </main>
-    <?php include "pages/footer.php"; ?>
+
+    <?php
+    include("pages/footer.php")
+    ?>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-      
     <script src="assets/js/app.js"></script>
 </body>
 

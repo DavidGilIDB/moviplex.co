@@ -8,7 +8,6 @@
         </div>
     </div>
     <div class="col-12 col-sm-7 d-flex flex-column justify-content-start col">
-
         <video class="mb-4" autoplay controls>
             <source src="<?= STORAGEURL . $item->src ?>" type="video/mp4">
         </video>

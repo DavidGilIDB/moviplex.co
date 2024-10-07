@@ -42,9 +42,11 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
     position: relative;
     z-index: 1;
   }
+
   .carousel {
     position: relative;
-}
+  }
+
   .hero .title {
     width: 100%;
     text-align: center;
@@ -425,7 +427,6 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
       <div class="animation-bck">
         <img src='assets/hero_collage.jpg' />
       </div>
-
     </div>
     <div id="introSection" class='d-flex justify-content-center align-items-center'>
       <div class="container d-flex justify-content-center">
@@ -438,11 +439,8 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
         <!-- Añadir slider -->
       </div>
     </div>
-
     <div class="">
-
     </div>
-
     <div class="main-sections">
       <div class="section-container" id="playSection">
         <div class="container">
@@ -451,18 +449,21 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
             <h2>Play</h2>
             <span class="subtitle">Videogames & Apps</span>
           </div>
-
           <div class="intro-cat">Immerse yourself in a world of fun and excitement with our wide selection of cutting-edge games. From <strong>thrilling adventures</strong> to challenging <strong>strategy games</strong>, Moviplex.co offers you unlimited access to an endless library of interactive entertainment. Are you ready to face new challenges and discover virtual worlds full of surprises?</div>
           <div class="cards-container">
+
             <?php
             for ($i = 0; $i < 6; $i++) {
             ?>
-              <a class="gameIcon" href="/"><img loading="lazy" src="<?= STORAGE_URL . $plays[$i]->image; ?>" alt="" width="195px" height="195px"></a>
+
+              <a class="gameIcon <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"])) ? "noLogin" : "" ?>" <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"])) ? '' : "href=index.php?main=play&page=single&section=action-games&item=" . $plays[$i]->id ?>><img loading="lazy" src="<?= STORAGE_URL . $plays[$i]->image ?>" alt="" width="195px" height="195px"></a>
+
             <?php
-            } ?>
+            }
+            ?>
+
           </div>
         </div>
-
       </div>
       <div class="section-container" id="watchSection">
         <div class="container">
@@ -471,19 +472,21 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
             <h2>Watch</h2>
             <span class="subtitle">Movies, TV Shows & Documentaries</span>
           </div>
-
           <div class="intro-cat">Enjoy a world of unparalleled entertainment with our carefully selected content that you won't find on any other platform; a wide range of <strong>exclusive films and series</strong> produced in collaboration with the best talent in the entertainment industry. <strong>Dramas, comedies, thrillers</strong> and much more. Our library of exclusive content is designed to suit all tastes and preferences.</div>
           <div class="cards-container">
+
             <?php
             for ($i = 0; $i < 6; $i++) {
             ?>
 
-              <a class="movie-btn" href="/watch/comedy/<?= $watch[$i]->slug; ?>"><img loading="lazy" src="assets/<?= $watch[$i]->image; ?>" alt="" width="195px" height="195px"></a>
+              <a class="movie-btn <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"])) ? "noLogin" : "" ?>" <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"])) ? '' : "href=index.php?page=watch&section=comedy&film_name=" . $watch[$i]->slug ?>><img loading="lazy" src="assets/<?= $watch[$i]->image ?>" alt="" width="195px" height="195px"></a>
+
             <?php
-            } ?>
+            }
+            ?>
+
           </div>
         </div>
-
       </div>
       <div class="section-container" id="playSection">
         <div class="container">
@@ -492,18 +495,21 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
             <h2>Train</h2>
             <span class="subtitle">Lifestyle & Fitness</span>
           </div>
-
           <div class="intro-cat">Live a balanced and healthy life with our dedicated <strong>lifestyle and fitness</strong> section. Discover <strong>wellness tips</strong>, personalised <strong>exercise routines</strong> and <strong>healthy recipes</strong> to help you achieve your health and wellness goals. From relaxing yoga to high-intensity workouts, we're here to support you on your journey to a more active and healthy life.</div>
           <div class="cards-container">
+
             <?php
             for ($i = 0; $i < 6; $i++) {
             ?>
-              <a class="gameIcon" href="/"><img loading="lazy" src="<?= STORAGE_URL . $train[$i]->image; ?>" alt="" width="195px" height="195px"></a>
+
+              <a class="gameIcon <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"])) ? "noLogin" : "" ?>" <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"])) ? '' : "href=index.php?main=fitness&page=single&section=health-fitness-videos&item=" . $train[$i]->id ?>><img loading="lazy" src="<?= STORAGE_URL . $train[$i]->image ?>" alt="" width="195px" height="195px"></a>
+
             <?php
-            } ?>
+            }
+            ?>
+
           </div>
         </div>
-
       </div>
       <div class="section-container" id="playSection">
         <div class="container">
@@ -512,18 +518,21 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
             <h2>Learn</h2>
             <span class="subtitle">Courses & tutorials</span>
           </div>
-
           <div class="intro-cat">At Moviplex.co, knowledge is at your fingertips. Explore our learning section, where you will find a variety of <strong>courses</strong> and <strong>tutorials</strong> on <strong>a wide range of topics</strong>. From foreign languages to advanced technological skills, we have everything you need to expand your horizons and develop new skills that will help you grow personally and professionally.</div>
           <div class="cards-container">
+
             <?php
             for ($i = 0; $i < 6; $i++) {
             ?>
-              <a class="gameIcon" href="/"><img loading="lazy" src="<?= STORAGE_URL . $learn[$i]->image; ?>" alt="" width="195px" height="195px"></a>
+
+              <a class="gameIcon <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"])) ? "noLogin" : "" ?>" <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"])) ? '' : "href=index.php?main=learn&page=single&section=education-apps&item=" . $learn[$i]->id ?>><img loading="lazy" src="<?= STORAGE_URL . $learn[$i]->image ?>" alt="" width="195px" height="195px"></a>
+
             <?php
-            } ?>
+            }
+            ?>
+
           </div>
         </div>
-
       </div>
       <div class="section-container" id="playSection">
         <div class="container">
@@ -532,18 +541,21 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
             <h2>Enjoy</h2>
             <span class="subtitle">Audios, podcasts & music</span>
           </div>
-
           <div class="intro-cat">Relax and immerse yourself in an ocean of <strong>limitless entertainment</strong>. From <strong>games, articles, podcasts</strong>, videos to exclusive images, Moviplex.co gives you access to a world of exciting and varied content. What are you waiting for to explore new stories and discover your next obsessions.</div>
           <div class="cards-container">
+
             <?php
             for ($i = 0; $i < 6; $i++) {
             ?>
-              <a class="gameIcon" href="/"><img loading="lazy" src="<?= STORAGE_URL . $enjoy[$i]->image; ?>" alt="" width="195px" height="195px"></a>
+
+              <a class="gameIcon <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"])) ? "noLogin" : "" ?>" <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"])) ? '' : "href=index.php?main=enjoy&page=single&section=animal-videos&item=" . $enjoy[$i]->id ?>><img loading="lazy" src="<?= STORAGE_URL . $enjoy[$i]->image ?>" alt="" width="195px" height="195px"></a>
+
             <?php
-            } ?>
+            }
+            ?>
+
           </div>
         </div>
-
       </div>
       <div id="exclusiveSection" class="section-container">
         <div class="d-flex justify-content-center flex-column">
@@ -551,12 +563,17 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
           <div class="section-container">
             <div class="card">
               <div class="card-container <?= (!isset($_SESSION["login"]) || !$_SESSION["login"]) ? "noLogin" : "" ?>">
+
                 <?php
                 for ($i = 0; $i < 6; $i++) {
                 ?>
+
                   <img loading="lazy" src="<?= STORAGE_URL . $enjoy[$i]->image; ?>" alt="game" width="198px" height="198px" />
+
                 <?php
-                } ?>
+                }
+                ?>
+
               </div>
             </div>
           </div>
@@ -569,38 +586,39 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
               <h2>Top Articles</h2>
             </div>
             <div class="container d-flex gap-4 justify-content-center mt-5 articles-frame">
+
               <?php
               for ($i = 0; $i < 4; $i++) {
               ?>
-                <a href="most-read/articles/top-10/<?= $articlesTop[$i]->id; ?>" class="article-card">
-                  <picture>
-                    <img
-                      src="<?= STORAGE_URL . $articlesTop[$i]->image; ?>"
-                      alt="<?= $articlesTop[$i]->title; ?>" />
 
+                <a <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"])) ? '' : "href=index.php?main=learn&page=single&section=most-read-articles&item=" . $articlesTop[$i]->id ?> class="article-card <?= (!isset($_SESSION["login"]) || !$_SESSION["login"]) ? "noLogin" : "" ?>">
+                  <picture>
+                    <img src="<?= STORAGE_URL . $articlesTop[$i]->image ?>" alt="<?= $articlesTop[$i]->title ?>" />
                   </picture>
                   <div class="article-content p-4">
-                    <h5><?= $articlesTop[$i]->title; ?></h5>
+                    <h5><?= $articlesTop[$i]->title ?></h5>
                     <div class="excerp">
-                      <p><?= $articlesTop[$i]->excerpt; ?></p>
+                      <p><?= $articlesTop[$i]->excerpt ?></p>
                     </div>
                   </div>
                 </a>
-                <?php 
-                }
-                    ?>
+
+              <?php
+              }
+              ?>
+
             </div>
           </div>
         </div>
       </div>
       <div id="logoSection" class="section-container">
         <div class="carousel">
-                <img src="./assets/logo-marvel.png" alt="">
-                <img src="./assets/logo-20th.png" alt="">
-                <img src="./assets/logo-miramax.png" alt="">
-                <img src="./assets/logo-disney.png" alt="">
-                <img src="./assets/logo-universal.png" alt="">
-                <img src="./assets/logo-columbia.png" alt="">
+          <img src="./assets/logo-marvel.png" alt="">
+          <img src="./assets/logo-20th.png" alt="">
+          <img src="./assets/logo-miramax.png" alt="">
+          <img src="./assets/logo-disney.png" alt="">
+          <img src="./assets/logo-universal.png" alt="">
+          <img src="./assets/logo-columbia.png" alt="">
         </div>
       </div>
     </diV>

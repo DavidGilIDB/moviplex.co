@@ -1,56 +1,74 @@
 <div class="header-title category header-purple">
-    <h1>
-        <img
-            src="assets/icon-enjoy.svg"
-            alt="logo" />
-        Enjoy
-    </h1>
+    <h1><img src="assets/icon-enjoy.svg" alt="logo" />Enjoy</h1>
 </div>
 <div class="latestUpdate bckPlay">
     <h2 class="latestUpdate_title">Latest Updates</h2>
     <div class="swiper swiper-initialized swiper-horizontal mySwiper swiper-backface-hidden">
         <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px)">
 
-            <?php foreach ($recents[0] as $app) { ?>
+            <?php
+            foreach ($recents[0] as $app) {
+            ?>
+
                 <div class="swiper-slide swiper-slide-active <?= (!isset($_SESSION["login"]) || !$_SESSION["login"]) ? "noLogin" : "" ?>" style="width: 255.2px; margin-right: 30px">
-                    <a href="#"><img src="<?= STORAGEURL . $app->image; ?>" /></a>
+                    <a href="#"><img src="<?= STORAGEURL . $app->image ?>" alt="" /></a>
                 </div>
-            <?php } ?>
+
+            <?php
+            }
+            ?>
+
         </div>
         <div class="swiper-button-prev swiper-button-disabled"></div>
         <div class="swiper-button-next"></div>
         <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
-            <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span>
+            <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+            <span class="swiper-pagination-bullet"></span>
+            <span class="swiper-pagination-bullet"></span>
+            <span class="swiper-pagination-bullet"></span>
+            <span class="swiper-pagination-bullet"></span>
+            <span class="swiper-pagination-bullet"></span>
         </div>
     </div>
     <a class="section-btn mt-4 d-block m-auto btnPurple" href="#/games/action-games">See All</a>
 </div>
-<div class="section-title text-center mb-0 pb-0 container"><h1>Our apps, videos &amp; wallpapers</h1><p class="categoriesSub">Relax and immerse yourself in an ocean of limitless entertainment. From the latest <span class="purple">music</span>, <span class="purple">audios</span> and <span class="purple">podcasts</span> to access access to a world of exciting and varied content</p></div>
-<div class="main-sections"><a class="category-card purple " href="/enjoy/apps/astrology">
+<div class="section-title text-center mb-0 pb-0 container">
+    <h1>Our apps, videos &amp; wallpapers</h1>
+    <p class="categoriesSub">Relax and immerse yourself in an ocean of limitless entertainment. From the latest <span class="purple">music</span>, <span class="purple">audios</span> and <span class="purple">podcasts</span> to access access to a world of exciting and varied content</p>
+</div>
+<div class="main-sections">
+    <a class="category-card purple " href="index.php?page=enjoy&section=apps&slug=astrology-apps">
         <div class="category-card-content">
             <h3> Apps</h3>
             <p>Entertain yourself with a huge variety of apps of all kinds.</p>
-        </div><img class="category-card-image" src="assets/enjoy-apps.png" alt="Games">
-    </a><a class="category-card purple " href="/enjoy/videos/gaming-videos">
+        </div>
+        <img class="category-card-image" src="assets/enjoy-apps.png" alt="Games">
+    </a>
+    <a class="category-card purple " href="index.php?page=enjoy&section=videos&slug=gaming-videos">
         <div class="category-card-content">
             <h3> Videos</h3>
             <p>Discover interesting and fun things in our video catalog.</p>
-        </div><img class="category-card-image" src="assets/enjoy-videos.png" alt="Games">
-    </a><a class="category-card purple " href="/enjoy/gallery/moira-sport-images">
+        </div>
+        <img class="category-card-image" src="assets/enjoy-videos.png" alt="Games">
+    </a>
+    <a class="category-card purple " href="index.php?page=enjoy&section=gallery&slug=sport-images">
         <div class="category-card-content">
             <h3> Gallery</h3>
             <p>High resolution images, wallpapers, etc.</p>
-        </div><img class="category-card-image" src="assets/enjoy-gallery.png" alt="Games">
+        </div>
+        <img class="category-card-image" src="assets/enjoy-gallery.png" alt="Games">
     </a>
     <div>
         <div id="topArticlesSection">
             <div class="d-flex justify-content-center flex-column">
                 <div class="topArticlesTitle d-flex justify-content-between align-items-center">
-                    <h2>Top Articles</h2><a href="/enjoy/articles/fun-facts">See All</a>
+                    <h2>Top Articles</h2><a href="index.php?page=enjoy&section=articles&slug=fun-facts">See All</a>
                 </div>
                 <div class="container d-flex gap-4 justify-content-center mt-5 articles-frame">
                     <div class="article-card">
-                        <picture><img src="https://cms.d1b.pw/storage//articles/May2024/4WYklSDpW4vUexDslmhp.jpg" alt="The survey revealed who are the worst drivers in Europe"></picture>
+                        <picture>
+                            <img src="https://cms.d1b.pw/storage//articles/May2024/4WYklSDpW4vUexDslmhp.jpg" alt="The survey revealed who are the worst drivers in Europe">
+                        </picture>
                         <div class="article-content p-4">
                             <h5>The survey revealed who are the worst drivers in Europe</h5>
                             <div class="excerp">
@@ -59,7 +77,9 @@
                         </div>
                     </div>
                     <div class="article-card">
-                        <picture><img src="https://cms.d1b.pw/storage//articles/May2024/bIP11ZYxbY3mJSFODCzY.jpg" alt="This is not a set Pirates of the Caribbean - Tortugas island"></picture>
+                        <picture>
+                            <img src="https://cms.d1b.pw/storage//articles/May2024/bIP11ZYxbY3mJSFODCzY.jpg" alt="This is not a set Pirates of the Caribbean - Tortugas island">
+                        </picture>
                         <div class="article-content p-4">
                             <h5>This is not a set Pirates of the Caribbean - Tortugas island</h5>
                             <div class="excerp">
@@ -68,7 +88,9 @@
                         </div>
                     </div>
                     <div class="article-card">
-                        <picture><img src="https://cms.d1b.pw/storage//articles/May2024/spW0ZQnebG7fcRF4c0PG.jpg" alt="Can you name 5 countries that have no rivers?"></picture>
+                        <picture>
+                            <img src="https://cms.d1b.pw/storage//articles/May2024/spW0ZQnebG7fcRF4c0PG.jpg" alt="Can you name 5 countries that have no rivers?">
+                        </picture>
                         <div class="article-content p-4">
                             <h5>Can you name 5 countries that have no rivers?</h5>
                             <div class="excerp">
@@ -77,7 +99,9 @@
                         </div>
                     </div>
                     <div class="article-card">
-                        <picture><img src="https://cms.d1b.pw/storage//articles/May2024/gUNLmeLu2tvsjI3bPBtg.jpg" alt="An African tribe of bloody fights - they are proud of their struggles"></picture>
+                        <picture>
+                            <img src="https://cms.d1b.pw/storage//articles/May2024/gUNLmeLu2tvsjI3bPBtg.jpg" alt="An African tribe of bloody fights - they are proud of their struggles">
+                        </picture>
                         <div class="article-content p-4">
                             <h5>An African tribe of bloody fights - they are proud of their struggles</h5>
                             <div class="excerp">

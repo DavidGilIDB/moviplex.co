@@ -11,12 +11,7 @@ $item = current($obj);
 ?>
 
 <div class="header-title category header-red category">
-    <h1>
-        <img
-            src="assets/icon-watch.svg"
-            alt="logo" />
-        Watch
-    </h1>
+    <h1><img src="assets/icon-watch.svg" alt="logo" />Watch</h1>
 </div>
 <div class="container single-game mb-5">
     <div class="row justify-content-between">
@@ -35,15 +30,13 @@ $item = current($obj);
         </div>
         <div class="col-12 col-sm-7 d-flex flex-column justify-content-start">
             <div style="width: 100%; height: 360px;">
-                
-            <div id="player_video" style="display: none;"></div>
+                <div id="player_video" style="display: none;"></div>
                 <script>
                     flowplayer('#player_video', {
                         src: '<?= $item->urlVideo ?>',
                         autoplay: flowplayer.autoplay.AUDIO_REQUIRED,
                     })
                 </script>
-
                 <div id="player_trailer"></div>
                 <script>
                     flowplayer('#player_trailer', {
@@ -57,12 +50,12 @@ $item = current($obj);
     </div>
 </div>
 <script>
-$(document).ready(function(){
-   
-    $(".btnFullMovie").on("click",function(){
-        $(this).css("display","none")
-        $(this).siblings("#player_trailer").css("display","none");
-        $(this).siblings("#player_video").css("display","block");
-    })
-});
+    $(document).ready(function() {
+
+        $(".btnFullMovie").on("click", function() {
+            $(this).css("display", "none")
+            $(this).siblings("#player_trailer").css("display", "none");
+            $(this).siblings("#player_video").css("display", "block");
+        })
+    });
 </script>

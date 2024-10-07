@@ -1,7 +1,5 @@
 <?php
 
-
-
 $sent = false;
 $error_msg = false;
 

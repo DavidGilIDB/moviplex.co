@@ -1,6 +1,7 @@
 <?php
 $src = isset($item->src) ? $item->src : $item->excerpt;
 ?>
+
 <div class="row">
     <h1><?= $item->name ?? $item->title ?></h1>
 </div>

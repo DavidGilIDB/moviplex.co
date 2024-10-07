@@ -22,7 +22,6 @@ define("STORAGEURL", "https://cms.d1b.pw/storage/");
 
 define('MOIRA', 'moira-');
 
-
 setSession();
 function setSession()
 {
