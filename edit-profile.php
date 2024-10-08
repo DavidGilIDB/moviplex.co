@@ -5,12 +5,6 @@ header("X-Frame-Options: sameorigin");
 
 include("Global.php");
 
-/**
- * if there is a page, shows the page but not the home page
- * Session --> controls the user's session
- * This is the main page where all the php are inserted
- */
-
 $page = $_GET['page'] ?? "home";
 
 include("session.php");
@@ -54,8 +48,6 @@ setcookie('lang', $_COOKIE['lang']);
   <?php
   include("modal.php");
   include("pages/header.php");
-  include("pages/login.php");
-  include("pages/subscription.php");
   ?>
 
   <main class="profile">

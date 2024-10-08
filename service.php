@@ -48,8 +48,6 @@ setcookie('lang', $_COOKIE['lang']);
   <?php
   include("modal.php");
   include("pages/header.php");
-  include("pages/login.php");
-  include("pages/subscription.php");
   ?>
 
   <main class="profile">
@@ -78,10 +76,6 @@ setcookie('lang', $_COOKIE['lang']);
   </main>
 
   <?php
-  include("pages/login.php");
-  include("pages/login-mobile.php");
-  include("pages/login-user.php");
-  include("pages/subscription.php");
   include("pages/footer.php");
   ?>
 

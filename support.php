@@ -44,9 +44,7 @@ setcookie('lang', $_COOKIE['lang']);
 
   <?php
   include("modal.php");
-  include("pages/header.php");
-  include("pages/login.php");
-  include("pages/subscription.php");
+  include("pages/header.php");;
   ?>
 
   <main>

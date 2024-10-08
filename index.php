@@ -106,10 +106,6 @@ include("session.php");
       $page = 'error';
     }
     include "pages/header.php";
-    include "pages/login.php";
-    // include "pages/login-mobile.php";
-    // include "pages/login-user.php";
-    include "pages/subscription.php";
     include "pages/$page.php";
     include "pages/footer.php";
   }

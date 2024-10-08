@@ -3,7 +3,7 @@ if (isset($_GET['logout']) == 'true') {
     session_unset();
     session_destroy();
     $error = 'BYE';
-    header('Location:index.php');
+    header("Location:".$_SERVER["PHP_SELF"]);
 }
 
 
