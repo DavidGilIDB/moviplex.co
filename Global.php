@@ -11,8 +11,15 @@ define("APIURL", "");
 define("CONTACTURL", "");
 define("LOGINURLEMAIL", "https://payment-backend.v8c.pw/user/loginOtp");
 define("SIGNUPURLEMAIL", "https://stream-api.d1b.pw/api5/signup_email");
+
+//Test url 
+define("SEND_OTP","https://celerispay-backend.v8c.pw/api/celerispay/sendOtp");
+define("LOGIN", "https://celerispay-backend.v8c.pw/api/celerispay/login");
+
+//Original url
 define("LOGINURL", "https://stream-api.d1b.pw/api/signup");
 define("VERIFICATIONURL", "https://payment-backend.v8c.pw/user/verifyOtp");
+
 define("URL", "https://stream-api.d1b.pw/api5/");
 define("URLVIDEOS", "https://stream-api.d1b.pw/");
 define("UNSUB", "https://stream-api.d1b.pw/api5/signoff");

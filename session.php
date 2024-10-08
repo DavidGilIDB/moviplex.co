@@ -1,145 +1,56 @@
 <?php
-//var_dump($_SESSION['login']);
-//var_dump($_SESSION['pay_status']);
-
 if (isset($_GET['logout']) == 'true') {
     session_unset();
     session_destroy();
-    $error='BYE';
+    $error = 'BYE';
     header('Location:index.php');
 }
 
-/** check username and password in login */
-/*
-if (isset($_POST['username']) && $_POST['username']!='') {
 
+if (isset($_POST["btnSubmitEmail"])) {
+
+    $email = $_POST["email"];
 
     $curl_handle = curl_init();
-    curl_setopt($curl_handle, CURLOPT_URL, LOGINURL . "?email=&username=" . $_POST['username'] . "&password=" . $_POST['password'] . "&msisdn=&productId=" . $_POST['productId']);
+    curl_setopt($curl_handle, CURLOPT_URL, SEND_OTP . "?email=" . $email);
+    //curl_setopt($curl_handle, CURLOPT_URL, LOGINURLEMAIL . "?service=FLEXCAST&email=" . $email);
     curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 60);
     curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($curl_handle, CURLOPT_SSL_VERIFYPEER, FALSE);
-    $buffer = curl_exec($curl_handle);
+    curl_setopt($curl_handle, CURLOPT_SSL_VERIFYPEER, false);
+    $response = curl_exec($curl_handle);
     curl_close($curl_handle);
 
-    if ($buffer == 'OK') {
-        $page='home';
-        $_SESSION['login']=true;
-        $_SESSION['pay_status']=true;
-    }else if($buffer == 'PENDING'){
-        $page='home';
-        $_SESSION['login']=true;
-        $_SESSION['pay_status']=false;
+    if ($response == "OK") {
+
+        $showOpt = true;
+        $_SESSION["email"] = $email;
     } else {
-        $error = 'Usuario no registrado';
+
+        $showOpt = false;
+        $error_email = true;
     }
-}*/
+} elseif (isset($_POST["btnSubmitOtp"])) {
 
-if(isset($_POST['emailSignup']) || isset($_GET['emailSignup'])){
-    if(isset($_POST['emailSignup'])){
-    $_SESSION['email']=$_POST['emailSignup'];
-    }else{
-    $_SESSION['email']=$_GET['emailSignup'];
-    }
-    $_SESSION['login'] = true;
-    $_SESSION['pay_status'] = true; 
-    header('Location: index.php');
-}
-
-/** check email in login */
-
-if (isset($_POST['email']) && $_POST['email'] != '' || isset($_GET['email']) && $_GET['email'] != '') {
-
-    if(isset($_POST['email'])){
-        $first=false;
-        $email=$_POST['email'];
-    }else{
-        $first=true;
-        $email=$_GET['email'];
-    }
+    $otp = $_POST["otp"];
 
     $curl_handle = curl_init();
-    curl_setopt($curl_handle, CURLOPT_URL, LOGINURLEMAIL . "service=MOVIPLEX&email=" . $email);
+    curl_setopt($curl_handle, CURLOPT_URL, LOGIN . "?email=" .  $_SESSION["email"] . '&otp=' . $otp);
     curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 60);
     curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($curl_handle, CURLOPT_SSL_VERIFYPEER, FALSE);
-    $buffer = curl_exec($curl_handle);
+    curl_setopt($curl_handle, CURLOPT_SSL_VERIFYPEER, false);
+    $response = curl_exec($curl_handle);
     curl_close($curl_handle);
 
+    if ($response == 'OK') {
 
-    if ($buffer == 'OK') {
-        if($first==true){ // || $email=='compliance@solidgate.com'
-            $_SESSION['email']= $email;
-            $_SESSION['login'] = true;
-            $_SESSION['pay_status'] = true;
-            header('Location: index.php');
-        }else{
-        $page = 'otp-page';
-        }
-    } else if ($buffer == 'PENDING') {
-        $_SESSION['email']= $email;
-        $_SESSION['login'] = true;
-        $_SESSION['pay_status'] = false;
-        header('Location: index.php');
-    }else {
-        header('Location: index.php?page=error');
-        
-    }
-}
-/* REGISTRAR
-$curl_handle = curl_init();
-        curl_setopt($curl_handle, CURLOPT_URL, LOGINURLEMAIL . "?email=" . $_POST['email'] . "&username=&password=&msisdn=&productId=" . $_POST['productId']);
-        curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 60);
-        curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curl_handle, CURLOPT_SSL_VERIFYPEER, FALSE);
-        $buffer = curl_exec($curl_handle);
-        curl_close($curl_handle);
-
-        if ($buffer == 'OK') {
-            $page = 'home';
-            $_SESSION['login'] = true;
-            $_SESSION['pay_status'] = true;
-        } else if ($buffer == 'PENDING') {
-            $page = 'home';
-            $_SESSION['login'] = true;
-            $_SESSION['pay_status'] = false;
-        }else {
-            $error = 'Usuario no registrado';
-        } */
-
-/** check email */
-if (isset($_POST['verificationEmail'])) {
-
-    $result = emailVerificaction($_POST['verificationEmail'], $_POST['otp']);
-    if ($result == 'OK') {
         $_SESSION['login'] = true;
         $_SESSION['pay_status'] = true;
-        $_SESSION['email']= $_POST['verificationEmail'];
-        header('Location: index.php');
-    } else if ($result == 'PENDING') {
+    } elseif ($response == 'PENDING') {
+
         $_SESSION['login'] = true;
         $_SESSION['pay_status'] = false;
-        $_SESSION['email']= $_POST['verificationEmail'];
-        header('Location: index.php');
     } else {
-        $error = '<p>OTP Incorrecto</p>';
+        $showOpt = true;
+        $error_otp = '<p></p>';
     }
 }
-
-
-/** function check email */
-function emailVerificaction($email, $otp)
-{
-    $curl_handle = curl_init();
-    curl_setopt($curl_handle, CURLOPT_URL, VERIFICATIONURL . "?email=" . $email . "&otp=" . $otp);
-    curl_setopt($curl_handle, CURLOPT_CONNECTTIMEOUT, 60);
-    curl_setopt($curl_handle, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($curl_handle, CURLOPT_SSL_VERIFYPEER, FALSE);
-    $buffer = curl_exec($curl_handle);
-    curl_close($curl_handle);
-
-    return $buffer;
-}
-
-//var_dump($userAgent);
-//die;
