@@ -1,11 +1,11 @@
 <?php
+
 if (isset($_GET['logout']) == 'true') {
     session_unset();
     session_destroy();
     $error = 'BYE';
     header("Location:".$_SERVER["PHP_SELF"]);
 }
-
 
 if (isset($_POST["btnSubmitEmail"])) {
 
@@ -21,14 +21,13 @@ if (isset($_POST["btnSubmitEmail"])) {
     curl_close($curl_handle);
 
     if ($response == "OK") {
-
         $showOpt = true;
         $_SESSION["email"] = $email;
     } else {
-
         $showOpt = false;
         $error_email = true;
     }
+    
 } elseif (isset($_POST["btnSubmitOtp"])) {
 
     $otp = $_POST["otp"];

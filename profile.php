@@ -53,7 +53,7 @@ setcookie('lang', $_COOKIE['lang']);
       <a href="" class="back-btn">Back</a>
       <h2>Profile</h2>
       <div class="profile-btn">
-        <img class="profile-img" src="assets/images/profile.jpg" alt="Profile" />
+        <img class="profile-img" src="assets/images/profile.jpg" alt="Profile"/>
       </div>
     </div>
     <div class="container">
@@ -65,8 +65,8 @@ setcookie('lang', $_COOKIE['lang']);
           provident voluptate maxime commodi vitae animi fuga distinctio quaerat illo!
         </p>
         <div class="info-links">
-          <a class="d-flex my-3" href="edit-profile.php"><img src="assets/images/edit-icon.svg" alt="" /> Edit Profile</a>
-          <a class="d-flex my-3" href="manage-account.php"><img src="assets/images/dots.svg" alt="" /> Manage Account</a>
+          <a class="d-flex my-3" href="edit-profile.php"><img src="assets/images/edit-icon.svg" alt=""/>Edit Profile</a>
+          <a class="d-flex my-3" href="manage-account.php"><img src="assets/images/dots.svg" alt=""/>Manage Account</a>
         </div>
       </div>
     </div>

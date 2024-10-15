@@ -11,7 +11,7 @@ $item = current($obj);
 ?>
 
 <div class="header-title category header-red category">
-    <h1><img src="assets/icon-watch.svg" alt="logo" />Watch</h1>
+    <h1><img src="assets/icon-watch.svg" alt="logo"/>Watch</h1>
 </div>
 <div class="container single-game mb-5">
     <div class="row justify-content-between">
@@ -25,7 +25,7 @@ $item = current($obj);
                 </div>
             </div>
             <div class="single-movie-view__info mt-4">
-                <p><?= $item->sinopsis  ?></p>
+                <p><?= $item->sinopsis ?></p>
             </div>
         </div>
         <div class="col-12 col-sm-7 d-flex flex-column justify-content-start">

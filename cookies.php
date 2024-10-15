@@ -60,8 +60,8 @@ setcookie('lang', $_COOKIE['lang']);
   <main>
     <div class="title-bar d-flex justify-content-center align-center">
       <div class="breadcrumb d-flex gap-2">
-        <span>
-          < </span> <a href="index.php" title="Back">Back</a>
+        <span> < </span>
+        <a href="index.php" title="Back">Back</a>
       </div>
       <h1>Cookies</h1>
     </div>

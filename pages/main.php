@@ -16,6 +16,7 @@ if ($_GET['page'] == "watch") {
 }
 
 $exclusives = getSection('moira-exclusives-games', "en", "articles");
+
 ?>
 <!-- Google Tag Manager (noscript) -->
 <noscript>
@@ -44,6 +45,7 @@ switch ($_GET['page']) {
     include "components/enjoy-main.php";
     break;
 }
+
 ?>
 
 <div id="exclusiveSection" class="section-container">
@@ -60,7 +62,7 @@ switch ($_GET['page']) {
             <div class="swiper-slide swiper-slide-active cards <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"])) ? "noLogin" : "" ?>" style="width: 255.2px; margin-right: 30px">
               <div class="card">
                 <div class="card-header">
-                  <a  <?= (!isset($_SESSION["login"]) || !$_SESSION["login"]) ? "" : 'href="' . STORAGEURL . $article->excerpt . '"' ?>><img loading="lazy" src="<?= STORAGEURL . $article->image ?>" alt="<?= $article->title ?>" /></a>
+                  <a <?= (!isset($_SESSION["login"]) || !$_SESSION["login"]) ? "" : 'href="' . STORAGEURL . $article->excerpt . '"' ?>><img loading="lazy" src="<?= STORAGEURL . $article->image ?>" alt="<?= $article->title ?>" /></a>
                 </div>
                 <!-- <div class="card-body">
                   <h3 class="card-title"><?= $article->title ?></h3>
@@ -93,7 +95,10 @@ switch ($_GET['page']) {
         <div class="swiper-button-prev swiper-button-disabled"></div>
         <div class="swiper-button-next"></div>
         <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
-          <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span>
+          <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+          <span class="swiper-pagination-bullet"></span>
+          <span class="swiper-pagination-bullet"></span>
+          <span class="swiper-pagination-bullet"></span>
         </div>
       </div>
     </div>
@@ -103,7 +108,8 @@ switch ($_GET['page']) {
 <script
   src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous">
+</script>
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 

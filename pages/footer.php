@@ -81,7 +81,6 @@
     }
   }
 </style>
-<!--Here ends the home page-->
 <footer class="py-5 px-2">
   <div class="container">
     <div class="row">

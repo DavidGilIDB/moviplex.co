@@ -5,7 +5,6 @@ header("X-Frame-Options: sameorigin");
 
 include("Global.php");
 
-
 $page = $_GET['page'] ?? "home";
 
 include("session.php");

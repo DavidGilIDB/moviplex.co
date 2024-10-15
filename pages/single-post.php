@@ -1,5 +1,7 @@
 <?php
+
 $src = isset($item->src) ? $item->src : $item->excerpt;
+
 ?>
 
 <div class="row">

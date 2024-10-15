@@ -114,7 +114,7 @@
           if (!isset($_SESSION['login']) || !$_SESSION["login"]) {
           ?>
 
-            <a class="noLogin" title="login">Login</a>
+            <a class="noLogin login" title="login">Login</a>
 
           <?php
           }
@@ -136,15 +136,13 @@
         <li class="menuItem">
           <a href="service.php" title="Support">Service</a>
         </li>
-        <li class="menuItem">
-          <hr class="dropdown-divider" />
-        </li>
+
 
         <?php
         if (isset($_SESSION['login'])) {
         ?>
 
-          <li><a href="index.php?logout=true">Logout<img src="./assets/images/logout-icon.svg" alt="" /></a></li>
+          <li class="logout"><a href="index.php?logout=true"><span>Logout</span><img src="./assets/images/logout-icon.svg" alt="" /></a></li>
 
         <?php
         }
@@ -167,6 +165,17 @@
     $(".menu > button").on("click", function() {
 
       var $menu = $(this).siblings(".mobile-menu");
+
+      if (!$menu.hasClass("menu-open")) {
+        $menu.stop().slideDown(300).addClass("menu-open");
+      } else {
+        $menu.stop().slideUp(300).removeClass("menu-open");
+      }
+    });
+
+    $(".login").on("click", function() {
+
+      var $menu = $(this).parents(".mobile-menu");
 
       if (!$menu.hasClass("menu-open")) {
         $menu.stop().slideDown(300).addClass("menu-open");

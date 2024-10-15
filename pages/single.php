@@ -52,14 +52,21 @@ switch ($main) {
         <?php
 
         if ($type != "sounds" && $type != "videos") {
+
             include("single-post.php");
+
         } elseif ($type == "videos") {
+
             include("single-video.php");
+
         } else {
+
             include("single-audio.php");
+
         }
 
         include("sidebar.php");
+        
         ?>
 
     </div>

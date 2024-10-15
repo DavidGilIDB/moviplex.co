@@ -425,7 +425,7 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
         </a>
       </div>
       <div class="animation-bck">
-        <img src='assets/hero_collage.jpg' />
+        <img src='assets/hero_collage.jpg' alt=""/>
       </div>
     </div>
     <div id="introSection" class='d-flex justify-content-center align-items-center'>
@@ -445,7 +445,7 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
       <div class="section-container" id="playSection">
         <div class="container">
           <div class="section-title d-flex gap-3 my-3">
-            <img src="assets/icon-game.svg" />
+            <img src="assets/icon-game.svg" alt=""/>
             <h2>Play</h2>
             <span class="subtitle">Videogames & Apps</span>
           </div>
@@ -468,7 +468,7 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
       <div class="section-container" id="watchSection">
         <div class="container">
           <div class="section-title d-flex gap-3 my-3">
-            <img src="assets/icon-watch.svg" />
+            <img src="assets/icon-watch.svg" alt=""/>
             <h2>Watch</h2>
             <span class="subtitle">Movies, TV Shows & Documentaries</span>
           </div>
@@ -491,7 +491,7 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
       <div class="section-container" id="playSection">
         <div class="container">
           <div class="section-title d-flex gap-3 my-3">
-            <img src="assets/icon-game.svg" />
+            <img src="assets/icon-game.svg" alt=""/>
             <h2>Train</h2>
             <span class="subtitle">Lifestyle & Fitness</span>
           </div>
@@ -514,7 +514,7 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
       <div class="section-container" id="playSection">
         <div class="container">
           <div class="section-title d-flex gap-3 my-3">
-            <img src="assets/icon-learn.svg" />
+            <img src="assets/icon-learn.svg" alt=""/>
             <h2>Learn</h2>
             <span class="subtitle">Courses & tutorials</span>
           </div>
@@ -537,7 +537,7 @@ $articlesTop = getSection('moira-most-read-articles', 'en', 'articles')[0];
       <div class="section-container" id="playSection">
         <div class="container">
           <div class="section-title d-flex gap-3 my-3">
-            <img src="assets/icon-enjoy.svg" />
+            <img src="assets/icon-enjoy.svg" alt=""/>
             <h2>Enjoy</h2>
             <span class="subtitle">Audios, podcasts & music</span>
           </div>

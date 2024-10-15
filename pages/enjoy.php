@@ -80,9 +80,12 @@ $items = getSection($section, "en", $type);
 
         <?php
         if ($nom_section != "gallery") {
+
             foreach ($items[0] as $item) {
+
                 $random_decimal = round(rand(400, 500) / 100, 1);
                 $random_number = rand(1000, 9000);
+
         ?>
 
                 <div class="col-lg-3 col-md-4 col-12 my-3 col <?= ((!isset($_SESSION["login"]) || !$_SESSION["login"]) && ($nom_section == "articles" || $nom_section == "videos")) ? 'noLogin' : "" ?>">
