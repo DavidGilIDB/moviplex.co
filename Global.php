@@ -23,9 +23,9 @@ define("VERIFICATIONURL", "https://payment-backend.v8c.pw/user/verifyOtp");
 define("URL", "https://stream-api.d1b.pw/api5/");
 define("URLVIDEOS", "https://stream-api.d1b.pw/");
 define("UNSUB", "https://stream-api.d1b.pw/api5/signoff");
-define("STORAGE_URL", "https://cms.d1b.pw/storage/");
+define("STORAGE_URL", "https://cms.v8c.pw/storage/");
 define("CMSURL", "https://cms-nocache-api.d1b.pw/");
-define("STORAGEURL", "https://cms.d1b.pw/storage/");
+define("STORAGEURL", "https://cms.v8c.pw/storage/");
 
 define('MOIRA', 'moira-');
 

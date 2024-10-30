@@ -67,7 +67,7 @@
                 <div class="container d-flex gap-4 justify-content-center mt-5 articles-frame">
                     <div class="article-card">
                         <picture>
-                            <img src="https://cms.d1b.pw/storage//articles/May2024/IzSKRVa1dPWvbjHw9m6C.jpg" alt="Nourish and Revitalize: The Best Natural Ingredients for Your Skin">
+                            <img src="https://cms.v8c.pw/storage//articles/May2024/IzSKRVa1dPWvbjHw9m6C.jpg" alt="Nourish and Revitalize: The Best Natural Ingredients for Your Skin">
                         </picture>
                         <div class="article-content p-4">
                             <h5>Nourish and Revitalize: The Best Natural Ingredients for Your Skin</h5>
@@ -78,7 +78,7 @@
                     </div>
                     <div class="article-card">
                         <picture>
-                            <img src="https://cms.d1b.pw/storage//articles/May2024/oFgOXIz7d9CjTq2Fh29H.jpg" alt="Cool things you didn't know about Maldives">
+                            <img src="https://cms.v8c.pw/storage//articles/May2024/oFgOXIz7d9CjTq2Fh29H.jpg" alt="Cool things you didn't know about Maldives">
                         </picture>
                         <div class="article-content p-4">
                             <h5>Cool things you didn't know about Maldives</h5>
@@ -89,7 +89,7 @@
                     </div>
                     <div class="article-card">
                         <picture>
-                            <img src="https://cms.d1b.pw/storage//articles/May2024/VPC3hNeUZfKi0fmocIgU.jpg" alt="10,000 people lost their lives - the World's biggest lakes">
+                            <img src="https://cms.v8c.pw/storage//articles/May2024/VPC3hNeUZfKi0fmocIgU.jpg" alt="10,000 people lost their lives - the World's biggest lakes">
                         </picture>
                         <div class="article-content p-4">
                             <h5>10,000 people lost their lives - the World's biggest lakes</h5>
@@ -100,7 +100,7 @@
                     </div>
                     <div class="article-card">
                         <picture>
-                            <img src="https://cms.d1b.pw/storage//articles/May2024/uKgzeWbWRoQAOuD1V2M5.jpg" alt="If you don’t want to be found - Best places for introverts">
+                            <img src="https://cms.v8c.pw/storage//articles/May2024/uKgzeWbWRoQAOuD1V2M5.jpg" alt="If you don’t want to be found - Best places for introverts">
                         </picture>
                         <div class="article-content p-4">
                             <h5>If you don’t want to be found - Best places for introverts</h5>

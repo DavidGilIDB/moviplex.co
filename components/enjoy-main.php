@@ -67,7 +67,7 @@
                 <div class="container d-flex gap-4 justify-content-center mt-5 articles-frame">
                     <div class="article-card">
                         <picture>
-                            <img src="https://cms.d1b.pw/storage//articles/May2024/4WYklSDpW4vUexDslmhp.jpg" alt="The survey revealed who are the worst drivers in Europe">
+                            <img src="https://cms.v8c.pw/storage//articles/May2024/4WYklSDpW4vUexDslmhp.jpg" alt="The survey revealed who are the worst drivers in Europe">
                         </picture>
                         <div class="article-content p-4">
                             <h5>The survey revealed who are the worst drivers in Europe</h5>
@@ -78,7 +78,7 @@
                     </div>
                     <div class="article-card">
                         <picture>
-                            <img src="https://cms.d1b.pw/storage//articles/May2024/bIP11ZYxbY3mJSFODCzY.jpg" alt="This is not a set Pirates of the Caribbean - Tortugas island">
+                            <img src="https://cms.v8c.pw/storage//articles/May2024/bIP11ZYxbY3mJSFODCzY.jpg" alt="This is not a set Pirates of the Caribbean - Tortugas island">
                         </picture>
                         <div class="article-content p-4">
                             <h5>This is not a set Pirates of the Caribbean - Tortugas island</h5>
@@ -89,7 +89,7 @@
                     </div>
                     <div class="article-card">
                         <picture>
-                            <img src="https://cms.d1b.pw/storage//articles/May2024/spW0ZQnebG7fcRF4c0PG.jpg" alt="Can you name 5 countries that have no rivers?">
+                            <img src="https://cms.v8c.pw/storage//articles/May2024/spW0ZQnebG7fcRF4c0PG.jpg" alt="Can you name 5 countries that have no rivers?">
                         </picture>
                         <div class="article-content p-4">
                             <h5>Can you name 5 countries that have no rivers?</h5>
@@ -100,7 +100,7 @@
                     </div>
                     <div class="article-card">
                         <picture>
-                            <img src="https://cms.d1b.pw/storage//articles/May2024/gUNLmeLu2tvsjI3bPBtg.jpg" alt="An African tribe of bloody fights - they are proud of their struggles">
+                            <img src="https://cms.v8c.pw/storage//articles/May2024/gUNLmeLu2tvsjI3bPBtg.jpg" alt="An African tribe of bloody fights - they are proud of their struggles">
                         </picture>
                         <div class="article-content p-4">
                             <h5>An African tribe of bloody fights - they are proud of their struggles</h5>
